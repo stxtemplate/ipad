@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Template Studio">
+<link rel="manifest" href="manifest.json">
+<title>Template Studio Online Mobile V108</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Prompt:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600;700&display=swap');
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Bd_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Bd_Cond_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Bd_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Bd_Ext_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Bd_It_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Bd_v3_2_ttf.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Blk_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Blk_Cond_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Blk_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Blk_Ext_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Blk_It_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Blk_v3_2_ttf.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Cond_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Ext_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_It_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Li_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Li_Cond_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Li_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Li_Ext_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Li_It_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Li_v3_2_ttf.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Med_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Med_Cond_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Med_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Med_Ext_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Med_It_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Med_v3_2_ttf.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Thin_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_Thin_Cond_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Thin_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_Thin_Ext_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Thin_It_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_Thin_v3_2_ttf.ttf') format('truetype');font-weight:100;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_UlLi_Cond_It_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Cond';src:url('fonts/DB_Helvethaica_X_UlLi_Cond_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_UlLi_Ext_It_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X Ext';src:url('fonts/DB_Helvethaica_X_UlLi_Ext_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_UlLi_It_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:italic;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_UlLi_v3_2_ttf.ttf') format('truetype');font-weight:200;font-style:normal;font-display:swap;}
+@font-face{font-family:'DB Helvethaica X';src:url('fonts/DB_Helvethaica_X_v3_2_ttf.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Thai",sans-serif;background:#eef1f5;color:#18202a}
+.app{height:100dvh;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}.top{height:58px;background:#fff;border-bottom:1px solid #d9dee5;display:flex;align-items:center;padding:0 16px;gap:12px}.brand{font-weight:800;font-size:18px;margin-right:auto}
+button,select,input{font:inherit}.btn{border:1px solid #d3d9e1;background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer}.btn:hover{background:#f3f5f8}.primary{background:#1769e0;color:white;border-color:#1769e0}
+.body{display:flex;min-height:0;flex:1}.left,.right{width:245px;background:#fff;border-right:1px solid #d9dee5;padding:14px;overflow:auto}.right{border-right:0;border-left:1px solid #d9dee5;width:270px}.tools{display:grid;grid-template-columns:1fr 1fr;gap:9px}.tool{padding:13px 8px;border:1px solid #dce1e8;border-radius:10px;background:#fafbfc;cursor:pointer;text-align:center}.tool:hover{border-color:#1769e0}.hint{font-size:12px;color:#6d7784;line-height:1.5;margin:14px 2px}.stage{flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;padding:25px;background:#dfe4ea}
+.canvas-wrap{position:relative;touch-action:none;-webkit-user-select:none;user-select:none;box-shadow:0 10px 30px #0002;background:white;flex:none}.canvas{position:relative;overflow:hidden;background:#fff;user-select:none;touch-action:none;-webkit-touch-callout:none}.center-guide{position:absolute;z-index:9999;pointer-events:none;display:none}.center-guide.v{top:0;bottom:0;width:1px;background:#1769e0;opacity:.65}.center-guide.h{display:none!important}.center-guide.show{display:block}
+.item{position:absolute;cursor:move;touch-action:none;-webkit-user-select:none;user-select:none}.item.selected{outline:2px solid #1769e0;outline-offset:2px}.item.locked{cursor:not-allowed}.item img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none}.text-item{white-space:pre;line-height:1.08;font-weight:700;width:max-content!important;height:auto!important;max-width:none!important}.gradient-item{pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.10) 18%,rgba(0,0,0,.42) 55%,rgba(0,0,0,.88) 100%);}
+.bar-item{background:transparent;padding:0;white-space:pre-wrap;line-height:normal;font-weight:800;display:block;box-sizing:border-box;overflow:visible}.bar-item .bar-bg{position:absolute;inset:0;background:#ffe500;box-sizing:border-box}.bar-item .bar-content{position:absolute;left:0;top:0;display:block;box-sizing:border-box;white-space:pre-wrap;margin:0;padding:0;line-height:normal;font-weight:800;pointer-events:none}.bar-item .bar-content.bar-auto{display:flex;align-items:center}.bar-item.bar-manual .bar-content{position:absolute}.logo-item img{object-fit:contain}.image-item{overflow:hidden}.image-item img{object-fit:cover;transform-origin:center center}.overlay-item{overflow:hidden;background:#fff}.overlay-item img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center center}.overlay-item.shape-circle{border-radius:50%}.overlay-item.shape-rounded{border-radius:18%}.overlay-item.shape-square{border-radius:0}.overlay-item.shape-ellipse{border-radius:50%}.overlay-item.shape-horizontal,.overlay-item.shape-vertical{border-radius:0}.overlay-item.shape-diamond,.overlay-item.shape-hexagon,.overlay-item.shape-chamfer{border-radius:0;border:0!important}.overlay-item.shape-diamond{clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.overlay-item.shape-hexagon{clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}.overlay-item.shape-chamfer{clip-path:polygon(14% 0,86% 0,100% 14%,100% 86%,86% 100%,14% 100%,0 86%,0 14%)}.freebar-item{background:#ffe500;box-sizing:border-box;overflow:visible}.freebar-resize{position:absolute;background:#1769e0;border:2px solid #fff;border-radius:6px;display:none;z-index:30;box-shadow:0 1px 4px #0003}.freebar-item.selected .freebar-resize{display:block}.freebar-resize.top,.freebar-resize.bottom{left:50%;transform:translateX(-50%);width:46px;height:12px;cursor:ns-resize}.freebar-resize.top{top:-7px}.freebar-resize.bottom{bottom:-7px}.freebar-resize.left,.freebar-resize.right{top:50%;transform:translateY(-50%);width:12px;height:46px;cursor:ew-resize}.freebar-resize.left{left:-7px}.freebar-resize.right{right:-7px}.freebar-resize.top:after,.freebar-resize.bottom:after{content:'↕';display:block;color:#fff;font-size:10px;line-height:8px;text-align:center;font-weight:700}.freebar-resize.left:after,.freebar-resize.right:after{content:'↔';display:block;color:#fff;font-size:10px;line-height:42px;text-align:center;font-weight:700}.freebar-item{border-radius:0}.freebar-item.freebar-rounded{border-radius:18px}.freebar-item.freebar-round{border-radius:50%}.freebar-item.freebar-selected{outline:1px solid #1769e0}
+.bar-resize-top,.bar-resize-bottom{position:absolute;left:50%;transform:translateX(-50%);width:44px;height:12px;background:#1769e0;border:2px solid #fff;border-radius:8px;display:none;z-index:25;cursor:ns-resize;box-shadow:0 1px 4px #0003}.bar-resize-top{top:-7px}.bar-resize-bottom{bottom:-7px}.bar-item.bar-manual.selected .bar-resize-top,.bar-item.bar-manual.selected .bar-resize-bottom{display:block}.bar-resize-top:after,.bar-resize-bottom:after{content:"↕";display:block;color:#fff;font-size:10px;line-height:8px;text-align:center;font-weight:700}.resize{position:absolute;width:20px;height:20px;background:#1769e0;border:2px solid #fff;border-radius:50%;right:-10px;bottom:-10px;cursor:nwse-resize;display:none}.selected .resize{display:block}.bar-item:not(.bar-manual).selected .resize{display:none}.rotate{position:absolute;width:22px;height:22px;background:#fff;border:2px solid #1769e0;border-radius:50%;left:50%;top:-34px;transform:translateX(-50%);cursor:grab;display:none;z-index:20;box-shadow:0 1px 4px #0003}.rotate:after{content:"↻";display:block;color:#1769e0;font-size:15px;line-height:18px;text-align:center;font-weight:700}.selected .rotate{display:block}.rotate:active{cursor:grabbing}.panel-title{font-weight:800;margin:4px 0 12px}.field{margin:10px 0}.field label{display:block;font-size:12px;color:#697381;margin-bottom:5px}.field input[type=text],.field input[type=number],.field select{width:100%;padding:8px;border:1px solid #d6dce4;border-radius:7px}.row{display:flex;gap:7px}.row>*{flex:1}.font-size-control{display:grid;grid-template-columns:1fr minmax(90px,1.8fr) 1fr;gap:8px;align-items:center}.font-size-control input[type=range]{width:100%;margin:0;accent-color:#1769e0}.font-size-btn{height:40px;padding:4px 10px;font-size:20px;line-height:1}.layers{display:flex;flex-direction:column;gap:6px}.layer{padding:7px 8px;border:1px solid #dde2e8;border-radius:8px;display:flex;align-items:center;gap:7px;cursor:pointer;background:#fff}.layer.active{border-color:#1769e0;background:#edf4ff}.layer.dragging{opacity:.45}.layer-name{flex:1;min-width:0;line-height:1.25}.layer-actions{display:flex;gap:3px;flex:none}.layer-actions button{border:1px solid #d6dce4;background:#fff;border-radius:6px;width:30px;height:30px;cursor:pointer}.layer-actions button:disabled{opacity:.35;cursor:not-allowed}.small{font-size:12px;color:#65707c}.colorbox{display:flex;align-items:center;gap:8px;border:1px solid #d6dce4;border-radius:7px;padding:4px 7px;background:#fff}.colorbox input[type=color]{width:42px;height:32px;flex:none;border:0;padding:0;background:transparent}.colorbox span{font-size:12px;color:#4f5965;font-family:monospace}.empty{color:#88919c;font-size:13px}
+input[type=color]{width:100%;height:36px;border:0;background:none;padding:0}
+.mobile-tools{display:none}
+@media(max-width:900px){
+  .mobile-tools{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #d9dee5;padding:4px;z-index:100;height:68px}
+  .mobile-tools .tool{padding:3px 2px;font-size:17px;border:1px solid #dde2e8;border-radius:8px;background:#fafbfc;line-height:1.0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;min-height:58px}
+  .mobile-tools .tool span{display:block;font-size:10px;margin-top:2px}
+}
+@media(max-width:900px){
+  .top{height:92px;min-height:92px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:34px 48px;gap:4px;padding:4px 8px;align-items:center}
+  .brand{grid-column:1 / -1;width:auto;margin:0;font-size:16px;line-height:1}
+  .top .btn{padding:5px 4px;min-height:40px;font-size:15px;width:100%;min-width:0;white-space:nowrap}
+  .top .primary{font-size:15px;min-width:0}
+  .left{display:none}
+  .right{display:none;position:fixed;left:0;right:0;bottom:68px;width:100%;max-height:58dvh;background:#fff;border-left:0;border-top:1px solid #d9dee5;padding:10px 12px;overflow:auto;z-index:90;box-shadow:0 -6px 20px #0001}
+  .right.props-open{display:block !important;visibility:visible !important;opacity:1 !important}
+  .right .panel-title{font-size:15px;margin:2px 0 8px}
+  .props-head{display:flex;align-items:center;justify-content:space-between;gap:8px;position:sticky;top:-10px;background:#fff;z-index:2;padding:2px 0 8px}
+  .props-close{border:1px solid #d6dce4;background:#fff;border-radius:8px;min-width:42px;min-height:38px;font-size:20px;line-height:1}
+  .right .field{margin:7px 0}
+  .right .field label{font-size:11px}
+  .right .btn{min-height:38px}
+  .right .layers{display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-bottom:8px}
+  .right .layer{min-height:46px}
+  .right hr{display:none}
+  .right:not(.props-open){display:none}
+  .right.props-open{overflow:auto}
+  .body{display:block;height:calc(var(--app-vh, 100vh) - 92px)}
+  .stage{height:calc(var(--app-vh, 100vh) - 160px);min-height:0;padding:6px;overflow:auto;align-items:flex-start;justify-content:flex-start}
+  .canvas-wrap{max-width:100%;max-height:100%;margin:auto}
+}
+
+@media(pointer:coarse){
+  .btn,.tool,.layer{min-height:44px}
+  .item{touch-action:none}
+}
+
+/* V108 Mobile-first refinements */
+@media(max-width:600px){
+  html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
+  .app{height:100dvh;min-height:100dvh}
+  .top{height:54px;min-height:54px;display:flex;flex-wrap:nowrap;gap:5px;padding:4px 6px;overflow:hidden}
+  .brand{font-size:14px;min-width:0;max-width:112px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:auto}
+  .top .btn,.top select{height:42px;min-height:42px;padding:4px 6px;font-size:12px;flex:0 0 auto;width:auto}
+  .top #undo,.top #redo{font-size:0;width:42px;padding:0}
+  .top #undo:after{content:'↶';font-size:21px}
+  .top #redo:after{content:'↷';font-size:21px}
+  .top #clear{font-size:0;width:42px;padding:0}
+  .top #clear:after{content:'🗑️';font-size:18px}
+  .top #loadLatest{font-size:0;width:42px;padding:0}
+  .top #loadLatest:after{content:'↻';font-size:21px}
+  .top #exportFormat{width:58px;font-size:11px}
+  .top #export{width:58px;font-size:12px;padding:4px 2px}
+  .body{height:calc(100dvh - 54px);min-height:0}
+  .stage{height:calc(100dvh - 54px - 70px);min-height:0;padding:6px 4px 8px;overflow:auto;overscroll-behavior:contain;align-items:flex-start;justify-content:flex-start}
+  .canvas-wrap{margin:auto}
+  .mobile-tools{height:70px;padding:5px 4px max(5px,env(safe-area-inset-bottom));grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:58px;gap:5px;overflow-x:auto;overflow-y:hidden;justify-content:start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .mobile-tools::-webkit-scrollbar{display:none}
+  .mobile-tools .tool{width:58px;min-width:58px;height:58px;min-height:58px;padding:3px 2px;font-size:18px}
+  .mobile-tools .tool span{font-size:9px;white-space:nowrap}
+  .right{bottom:70px;max-height:calc(100dvh - 124px);padding:9px 10px max(12px,env(safe-area-inset-bottom));border-radius:14px 14px 0 0}
+  .right .field input[type=text],.right .field input[type=number],.right .field select{min-height:42px;font-size:14px}
+  .right .field input[type=range]{height:32px}
+  .right .colorbox{min-height:42px}
+  .right .colorbox input[type=color]{height:34px;width:48px}
+  .right .btn{min-height:42px}
+  .props-close{min-width:44px;min-height:42px}
+  .right .layer{min-height:48px;padding:8px}
+}
+@media(max-width:380px){
+  .brand{max-width:82px;font-size:13px}
+  .top #exportFormat{width:50px}
+  .top #export{width:52px}
+  .mobile-tools{grid-auto-columns:54px}
+  .mobile-tools .tool{width:54px;min-width:54px}
+}
+
+</style>
+<link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+<div class="app">
+<header class="top">
+<div class="brand">Template Studio</div>
+<button class="btn" id="undo">↶ Undo</button><button class="btn" id="redo">↷ Redo</button>
+<button class="btn" id="clear">ล้าง</button><button class="btn" id="loadLatest" title="โหลดงานล่าสุด">↻ ล่าสุด</button><select class="btn" id="exportFormat" aria-label="รูปแบบไฟล์"><option value="png">PNG</option><option value="jpeg">JPG</option></select><button class="btn primary" id="export">Export</button>
+</header>
+<div class="body">
+<aside class="left">
+<div class="panel-title">เพิ่มองค์ประกอบ</div>
+<div class="tools">
+<button class="tool" id="addImage">🖼️<br>ภาพ</button>
+<button class="tool" id="addOverlay">🖼️➕<br>ภาพซ้อน</button>
+<button class="tool" id="addText">T<br>ข้อความ</button>
+<button class="tool" id="addBar">🟨<br>แถบข้อความ</button>
+<button class="tool" id="addFreeBar">🟨<br>บาร์อิสระ</button>
+<button class="tool" id="addGradient">🌑<br>ไล่เฉดดำ</button>
+<button class="tool" id="addLogo">🏷️<br>Logo</button>
+</div>
+<div class="field"><label>ฟอนต์จากเครื่อง</label><button class="btn" id="addFontBtn" style="width:100%">＋ เพิ่มฟอนต์ .ttf / .otf / .woff</button></div>
+<div class="field"><label>ขนาดงาน</label><select id="size"><option value="1080x1350">โพสต์แนวตั้ง — 1080 × 1350</option><option value="1080x1080">โพสต์สี่เหลี่ยม — 1080 × 1080</option><option value="1920x1080">จอภาพ / วิดีโอแนวนอน — 1920 × 1080</option><option value="1080x1920">TikTok / Reels / Shorts — 1080 × 1920</option><option value="1280x720">YouTube Thumbnail — 1280 × 720</option><option value="1200x630">Facebook / LinkedIn / Social Post — 1200 × 630</option><option value="1640x856">Facebook Cover — 1640 × 856</option><option value="1500x500">Facebook / X Cover — 1500 × 500</option><option value="1600x900">X / Twitter Post — 1600 × 900</option><option value="1200x675">YouTube Community / Social — 1200 × 675</option><option value="1000x1500">Pinterest Pin — 1000 × 1500</option><option value="1200x1200">LINE / Social Square — 1200 × 1200</option></select></div>
+<div class="hint">คอม: ลากด้วยเมาส์ • มือถือ: แตะแล้วลากด้วยนิ้ว • ปุ่มภาพ/Logo ด้านล่างจะเปิดตัวเลือกไฟล์ของมือถือโดยตรง</div>
+</aside>
+
+<main class="stage"><div class="canvas-wrap"><div id="canvas" class="canvas"></div></div></main>
+
+<aside class="right">
+<div class="props-head"><div class="panel-title">Properties</div><button class="props-close" id="closeProps" type="button" aria-label="ปิด Properties">×</button></div>
+<div id="props" class="empty">เลือกองค์ประกอบก่อน</div>
+<hr style="border:0;border-top:1px solid #e1e5ea;margin:18px 0">
+<div class="panel-title">Layers</div><div id="layers" class="layers"></div>
+</aside>
+</div>
+<input id="file" type="file" accept="image/*" hidden>
+<input id="mobileImageFile" type="file" accept="image/*" style="display:none">
+<input id="mobileOverlayFile" type="file" accept="image/*" style="display:none">
+<input id="mobileLogoFile" type="file" accept="image/*" style="display:none">
+<input id="overlayFile" type="file" accept="image/*" hidden>
+<input id="fontFile" type="file" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2" hidden>
+
+<div id="mobileTools" class="mobile-tools">
+  <label class="tool" for="mobileImageFile">🖼️<span>ภาพ</span></label>
+  <label class="tool" for="mobileOverlayFile">🖼️➕<span>ภาพซ้อน</span></label>
+  <button class="tool" id="mText">T<span>ข้อความ</span></button>
+  <button class="tool" id="mBar">🟨<span>แถบ</span></button>
+<button class="tool" id="mFreeBar">🟨<span>บาร์อิสระ</span></button>
+  <button class="tool" id="mGradient">🌑<span>ไล่เฉด</span></button>
+  <label class="tool" for="mobileLogoFile">🏷️<span>Logo</span></label>
+  <button class="tool" id="mFont">🔤<span>ฟอนต์</span></button>
+  <button class="tool" id="mDelete" type="button" aria-label="ลบชิ้นงานที่เลือก">🗑️<span>ลบ</span></button>
+  <button class="tool" id="mExport">📤<span>บันทึก</span></button>
+  <button class="tool" id="mProps" type="button" aria-label="เปิดหรือปิด Properties">⚙️<span>Properties</span></button>
+</div>
+</div>
+<script>
+const canvas=document.getElementById('canvas'), props=document.getElementById('props'), layers=document.getElementById('layers');
+const vGuide=document.createElement('div'); vGuide.className='center-guide v';
+const hGuide=document.createElement('div'); hGuide.className='center-guide h';
+canvas.appendChild(vGuide); canvas.appendChild(hGuide);
+function showCenterGuides(v,h){ vGuide.classList.toggle('show',!!v); hGuide.classList.remove('show'); vGuide.style.left=(state.w/2)+'px'; }
+function hideCenterGuides(){showCenterGuides(false,false)}
+let state={w:1080,h:1350,items:[],selected:null,bgColor:'#000000'}, history=[], future=[], pending=null;
+let viewZoom=1;
+let propsOpen=false;
+const DRAFT_KEY='templateStudioLatestDraftV69';
+function saveDraft(){
+  try{
+    const draft=JSON.parse(JSON.stringify(state));
+    draft.selected=null;
+    localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
+  }catch(e){ console.warn('บันทึกงานล่าสุดไม่ได้',e); }
+}
+function loadDraft(){
+  try{
+    const raw=localStorage.getItem(DRAFT_KEY); if(!raw)return false;
+    const d=JSON.parse(raw); if(!d || !Array.isArray(d.items))return false;
+    state={w:Number(d.w)||1080,h:Number(d.h)||1350,items:d.items,selected:null,bgColor:d.bgColor||'#000000'}; let fbN=0; state.items.forEach(it=>{if(it.rotation==null)it.rotation=0; if(it.type==='bar' && it.fit!=='manual' && Number(it.pad)>=20) it.pad=6; if(it.type==='freebar'&&!it.label){let candidate=fbN===0?'bar':'bar'+fbN; while(state.items.some(x=>x!==it&&x.type==='freebar'&&x.label===candidate)){fbN++; candidate='bar'+fbN;} it.label=candidate; fbN++;}});
+    return true;
+  }catch(e){return false}
+}
+
+
+let customFonts = JSON.parse(localStorage.getItem('templateStudioFonts') || '[]');
+function saveFonts(){localStorage.setItem('templateStudioFonts', JSON.stringify(customFonts))}
+function registerFont(name, dataUrl){
+  const style=document.createElement('style');
+  style.textContent=`@font-face{font-family:'${name.replace(/'/g,"")}';src:url(${dataUrl}) format('truetype');font-weight:400;font-style:normal}`;
+  document.head.appendChild(style);
+}
+function loadFonts(){
+  customFonts.forEach(f=>registerFont(f.name,f.data));
+}
+function isCustomFont(name){ return customFonts.some(f=>f.name===name); }
+function fontOptions(selected){
+  const built=['Kanit','Prompt','Noto Sans Thai','Sarabun','Arial','DB Helvethaica X','DB Helvethaica X Cond','DB Helvethaica X Ext'];
+  return [...built,...customFonts.map(f=>f.name)].map(f=>`<option ${selected===f?'selected':''}>${f}</option>`).join('');
+}
+function defaultFontWeight(it){ return it.type==='bar' ? 800 : 700; }
+function fontWeightOf(it){ const n=Number(it.fontWeight); const name=it.font||'DB Helvethaica X'; if(isCustomFont(name)) return 400; return [100,200,300,400,500,600,700,800,900].includes(n)?n:defaultFontWeight(it); }
+function fontStyleOf(it){ const name=it.font||'DB Helvethaica X'; if(isCustomFont(name)) return 'normal'; return it.fontStyle==='italic' ? 'italic' : 'normal'; }
+function fontCss(it){ return `${fontStyleOf(it)} ${fontWeightOf(it)} ${Number(it.fontSize)||64}px '${(it.font||'DB Helvethaica X').replace(/[\'\\]/g,'')}'`; }
+function fontWeightOptions(selected){
+  const v=Number(selected);
+  return [[100,'Thin'],[200,'Ultra Light'],[300,'Light'],[400,'Regular'],[500,'Medium'],[600,'Semi Bold'],[700,'Bold'],[800,'Extra Bold'],[900,'Black']].map(([n,l])=>`<option value="${n}" ${v===n?'selected':''}>${l} (${n})</option>`).join('');
+}
+function fontStyleOptions(selected){ return `<option value="normal" ${selected!=='italic'?'selected':''}>ปกติ</option><option value="italic" ${selected==='italic'?'selected':''}>Italic</option>`; }
+loadFonts();
+
+function snap(){history.push(JSON.stringify(state)); if(history.length>40)history.shift();future=[]}
+function restore(s){state=JSON.parse(s);render()}
+function push(){snap();render()}
+function updateViewportHeight(){
+  const h=(window.visualViewport&&window.visualViewport.height)||window.innerHeight;
+  document.documentElement.style.setProperty('--app-vh', h+'px');
+}
+window.addEventListener('resize',updateViewportHeight);
+if(window.visualViewport) window.visualViewport.addEventListener('resize',updateViewportHeight);
+updateViewportHeight();
+
+function measureTextMetrics(it){
+  const fs=Number(it.fontSize)||64;
+  const weight=fontWeightOf(it);
+  const fontName=(it.font||'DB Helvethaica X').replace(/[\'\\]/g,'');
+  const ctx=document.createElement('canvas').getContext('2d');
+  ctx.font=`${weight} ${fs}px '${fontName}'`;
+  const lines=String(it.text||'').split('\n');
+  const widths=lines.map(line=>ctx.measureText(line||' ').width);
+  const w=Math.max(20,Math.ceil(Math.max(...widths,0)));
+  const h=Math.max(20,Math.ceil(lines.length*fs*1.08));
+  return {w,h};
+}
+
+function applyOverlayShape(el,it){
+  const shape=it.shape||'circle';
+  el.classList.remove('shape-circle','shape-rounded','shape-square','shape-ellipse','shape-horizontal','shape-vertical','shape-diamond','shape-hexagon','shape-chamfer');
+  el.classList.add('shape-'+shape);
+  el.style.overflow='hidden';
+  el.style.clipPath='none';
+  el.style.webkitClipPath='none';
+  if(shape==='circle'){
+    el.style.borderRadius='50%';
+  }else if(shape==='ellipse'){
+    el.style.borderRadius='50%';
+  }else if(shape==='rounded'){
+    el.style.borderRadius='18%';
+  }else if(shape==='diamond'){
+    el.style.borderRadius='0'; el.style.clipPath='polygon(50% 0%,100% 50%,50% 100%,0% 50%)'; el.style.webkitClipPath=el.style.clipPath;
+  }else if(shape==='hexagon'){
+    el.style.borderRadius='0'; el.style.clipPath='polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%)'; el.style.webkitClipPath=el.style.clipPath;
+  }else if(shape==='chamfer'){
+    el.style.borderRadius='0'; el.style.clipPath='polygon(14% 0%,86% 0%,100% 14%,100% 86%,86% 100%,14% 100%,0% 86%,0% 14%)'; el.style.webkitClipPath=el.style.clipPath;
+  }else{
+    el.style.borderRadius='0';
+  }
+  el.style.border=(Number(it.borderWidth)||0)+'px solid '+(it.borderColor||'#ffffff');
+}
+function render(){
+  canvas.style.width=state.w+'px'; canvas.style.height=state.h+'px';
+  canvas.style.backgroundColor=state.bgColor||'#000000';
+  const stage=document.querySelector('.stage');
+  const isMobile=window.matchMedia('(max-width:900px)').matches;
+  const availableW=isMobile ? Math.max(220, stage.clientWidth-20) : Math.max(280, stage.clientWidth-50);
+  const availableH=isMobile ? Math.max(220, stage.clientHeight-20) : Math.max(280, stage.clientHeight-50);
+  const maxW=isMobile ? availableW : Math.min(availableW,900);
+  const maxH=isMobile ? availableH : Math.min(availableH,760);
+  const baseScale=Math.max(0.05, Math.min(maxW/state.w,maxH/state.h,1));
+  const scale=baseScale*viewZoom;
+  const wrap=document.querySelector('.canvas-wrap');
+  wrap.style.width=state.w*scale+'px';
+  wrap.style.height=state.h*scale+'px';
+  canvas.style.transformOrigin='top left'; canvas.style.transform=`scale(${scale})`;
+  canvas.parentElement.style.width=state.w*scale+'px';canvas.parentElement.style.height=state.h*scale+'px';
+  document.querySelector('.stage').classList.toggle('zoomed',viewZoom>1.001);
+  canvas.innerHTML='';
+  canvas.appendChild(vGuide); canvas.appendChild(hGuide);
+  const renderItems=[...state.items].sort((a,b)=>{
+    const rank=t=>t==='image'?0:t==='gradient'?1:t==='overlay'?2:t==='freebar'?2.5:3;
+    const ra=rank(a.type), rb=rank(b.type);
+    if(ra!==rb) return ra-rb;
+    return state.items.indexOf(a)-state.items.indexOf(b);
+  });
+  renderItems.forEach((it,i)=>{
+    const el=document.createElement('div'); el.className='item '+it.type+'-item'+(state.selected===it.id?' selected':'')+(it.locked?' locked':'');
+    el.dataset.id=it.id; el.style.left=it.x+'px';el.style.top=it.y+'px';el.style.width=it.w+'px';el.style.height=it.h+'px';el.style.zIndex=i;
+    if(it.type==='text'){
+      el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);
+      // Plain text is content-sized: its drag target follows the actual text,
+      // so users don't have to grab a tiny corner of a fixed-width box.
+      el.style.width='max-content'; el.style.height='auto'; el.style.textAlign=it.textAlign||'left';
+      const measured=measureTextMetrics(it);
+      it.w=measured.w; it.h=measured.h;
+      el.style.width=measured.w+'px'; el.style.height=measured.h+'px';
+    }
+    if(it.type==='bar'){el.innerHTML='';el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';const bg=document.createElement('div');bg.className='bar-bg';bg.style.background=it.bg||'#ffe500';const bc=document.createElement('div');bc.className='bar-content';bc.textContent=it.text;el.appendChild(bg);el.appendChild(bc);fitBar(it,el)}
+    if(it.type==='freebar'){
+      el.classList.add('freebar-item');
+      el.style.background=it.bg||'#ffe500';
+      el.style.opacity=String(Number.isFinite(Number(it.opacity))?Number(it.opacity):1);
+      el.style.border=(Number(it.borderWidth)||0)+'px solid '+(it.borderColor||'transparent');
+      el.style.borderRadius=it.radius==='round'?'50%':(Number(it.radius)||0)+'px';
+      ['top','bottom','left','right'].forEach(side=>{const h=document.createElement('div');h.className='freebar-resize '+side;h.dataset.side=side;el.appendChild(h);});
+    }
+    if(it.type==='gradient'){it.color=it.color||'#000000';it.opacity=Number.isFinite(Number(it.opacity))?Number(it.opacity):0.85;el.style.background=`linear-gradient(to bottom, ${rgba(it.color,0)} 0%, ${rgba(it.color,it.opacity*0.12)} 18%, ${rgba(it.color,it.opacity*0.48)} 55%, ${rgba(it.color,it.opacity)} 100%)`;el.style.pointerEvents='none';}
+    if(it.type==='image'||it.type==='logo'||it.type==='overlay'){const im=document.createElement('img');im.src=it.src;im.draggable=false;el.appendChild(im);el.style.objectFit='contain';if(it.type==='image'){it.zoom=Number(it.zoom)||1;im.style.transform=`scale(${it.zoom})`;im.style.transformOrigin='center center';im.style.objectFit='cover'} if(it.type==='overlay'){it.cropZoom=Number.isFinite(Number(it.cropZoom))?Number(it.cropZoom):1;it.cropX=Number.isFinite(Number(it.cropX))?Number(it.cropX):0;it.cropY=Number.isFinite(Number(it.cropY))?Number(it.cropY):0;applyOverlayShape(el,it);im.style.objectFit='cover';im.style.width='100%';im.style.height='100%';im.style.transform=`translate(${it.cropX}%,${it.cropY}%) scale(${it.cropZoom})`}}
+    const h=document.createElement('div');h.className='resize';
+    const rHandle=document.createElement('div'); rHandle.className='rotate';
+    const barTopHandle=document.createElement('div'); barTopHandle.className='bar-resize-top';
+    const barBottomHandle=document.createElement('div'); barBottomHandle.className='bar-resize-bottom';
+    // Plain text is resized through font size/properties rather than a tiny corner handle.
+    if(it.type!=='text' && it.type!=='gradient') el.appendChild(h);
+    if(it.type==='bar'){ el.appendChild(barTopHandle); el.appendChild(barBottomHandle); }
+    if(it.type==='logo'||it.type==='overlay') el.appendChild(rHandle);
+    const rot=Number(it.rotation)||0;
+    if(it.type==='logo'||it.type==='overlay') el.style.transform=`rotate(${rot}deg)`;
+    canvas.appendChild(el);
+    bind(el,it.type==='text'||it.type==='freebar'?null:h,it,rHandle,barTopHandle,barBottomHandle);
+    if(it.type==='freebar') bindFreeBarResize(el,it);
+  });
+  renderLayers(); renderProps();
+  const right=document.querySelector('.right');
+  right.classList.toggle('props-open', isMobile && propsOpen);
+  right.classList.toggle('has-selection', !!state.selected);
+  applyMobilePropsVisibility();
+  document.documentElement.style.setProperty('--props-h','0px');
+  saveDraft();
+  applyViewZoomStyles();
+}
+function getBarFontMetrics(ctx, fs, text){
+  const m=ctx.measureText(text||' ');
+  const actualA=Number.isFinite(m.actualBoundingBoxAscent)?m.actualBoundingBoxAscent:fs*.78;
+  const actualD=Number.isFinite(m.actualBoundingBoxDescent)?m.actualBoundingBoxDescent:fs*.22;
+  const fontA=Number.isFinite(m.fontBoundingBoxAscent)?m.fontBoundingBoxAscent:0;
+  const fontD=Number.isFinite(m.fontBoundingBoxDescent)?m.fontBoundingBoxDescent:0;
+  const emA=Number.isFinite(m.emHeightAscent)?m.emHeightAscent:0;
+  const emD=Number.isFinite(m.emHeightDescent)?m.emHeightDescent:0;
+  return {a:Math.max(actualA,fontA,emA,fs*.78),d:Math.max(actualD,fontD,emD,fs*.22)};
+}
+function measureBarLayout(it, el=null){
+  const fs=Math.max(12,Number(it.fontSize)||64);
+  const fontName=(it.font||'DB Helvethaica X').replace(/[']/g,'');
+  const padX=Math.max(0,Number(it.padX)||0);
+  const ctx=document.createElement('canvas').getContext('2d');
+  ctx.font=fontCss(it);
+  const metricFor=(text)=>{
+    const m=ctx.measureText(text||' ');
+    const a=Math.max(Number.isFinite(m.actualBoundingBoxAscent)?m.actualBoundingBoxAscent:0,Number.isFinite(m.fontBoundingBoxAscent)?m.fontBoundingBoxAscent:0,fs*.78);
+    const d=Math.max(Number.isFinite(m.actualBoundingBoxDescent)?m.actualBoundingBoxDescent:0,Number.isFinite(m.fontBoundingBoxDescent)?m.fontBoundingBoxDescent:0,fs*.22);
+    return {a,d,total:a+d};
+  };
+  let targetW=Math.max(20,Number(it.w)||100),lines=[];
+  const raw=String(it.text||'').split('\n');
+  if(it.fit==='text'){
+    const maxContent=Math.max(20,state.w-it.x-padX*2);
+    for(const para of raw){ if(ctx.measureText(para||' ').width<=maxContent) lines.push(para); else lines.push(...wrapLines(ctx,para,maxContent)); }
+    const longest=Math.max(1,...lines.map(line=>ctx.measureText(line||' ').width));
+    targetW=Math.min(Math.max(20,Math.ceil(longest+padX*2)),Math.max(20,state.w-it.x));
+  }else{
+    if(it.fit==='full') targetW=Math.max(20,state.w-it.x);
+    const maxContent=Math.max(20,targetW-padX*2);
+    for(const para of raw) lines.push(...wrapLines(ctx,para,maxContent));
+  }
+  const metrics=lines.map(metricFor);
+  const maxGlyph=metrics.reduce((m,v)=>Math.max(m,v.total),fs);
+  const lineHeight=Math.max(Math.ceil(fs*1.06),Math.ceil(maxGlyph+4));
+  const padY=Math.max(0,Number(it.pad)||0);
+  const height=Math.max(lineHeight+padY*2,Math.ceil(lines.length*lineHeight+padY*2));
+  if(el){
+    el.style.width=targetW+'px'; el.style.height=height+'px'; el.style.padding='0'; el.style.lineHeight='normal';
+    const content=el.querySelector('.bar-content');
+    if(content){
+      content.style.boxSizing='border-box'; content.style.width='100%'; content.style.height='100%';
+      content.style.padding=`${padY}px ${padX}px`; content.style.lineHeight=lineHeight+'px'; content.style.whiteSpace='pre-wrap';
+      content.style.fontSize=fs+'px'; content.style.fontFamily=`'${fontName}'`; content.style.fontWeight=String(fontWeightOf(it));
+      content.style.fontStyle=fontStyleOf(it);
+      content.style.display='flex'; content.style.pointerEvents='none'; content.style.alignItems='center';
+      content.style.justifyContent=it.textAlign==='center'?'center':it.textAlign==='right'?'flex-end':'flex-start';
+    }
+  }
+  return {lines,targetW,height,lineHeight,pad:padY,padX,fs,metrics};
+}
+function getBarTextMetrics(it){
+  const fs=Math.max(12,Number(it.fontSize)||64);
+  const weight=fontWeightOf(it);
+  const style=fontStyleOf(it);
+  const fontName=(it.font||'DB Helvethaica X').replace(/[\'\\]/g,'');
+  const ctx=document.createElement('canvas').getContext('2d');
+  ctx.font=`${style} ${weight} ${fs}px '${fontName}'`;
+  const lines=String(it.text||'').split('\\n');
+  const metrics=lines.map(line=>{
+    const m=ctx.measureText(line||' ');
+    const a=Math.max(Number.isFinite(m.actualBoundingBoxAscent)?m.actualBoundingBoxAscent:0,Number.isFinite(m.fontBoundingBoxAscent)?m.fontBoundingBoxAscent:0,Number.isFinite(m.emHeightAscent)?m.emHeightAscent:0,fs*.78);
+    const d=Math.max(Number.isFinite(m.actualBoundingBoxDescent)?m.actualBoundingBoxDescent:0,Number.isFinite(m.fontBoundingBoxDescent)?m.fontBoundingBoxDescent:0,Number.isFinite(m.emHeightDescent)?m.emHeightDescent:0,fs*.22);
+    return {a,d,total:a+d,width:m.width};
+  });
+  const maxGlyph=Math.max(fs,...metrics.map(m=>m.total));
+  const lineHeight=Math.max(Math.ceil(fs*1.06),Math.ceil(maxGlyph+4));
+  const width=Math.max(20,...metrics.map(m=>m.width));
+  const blockH=Math.max(lineHeight,lines.length*lineHeight);
+  return {fs,weight,style,fontName,lines,metrics,lineHeight,blockH,width};
+}
+function getManualBarTextBox(it){ return getBarTextMetrics(it); }
+function enterManualBar(it){
+  if(it.type!=='bar')return;
+  const x=Number(it.x)||0, y=Number(it.y)||0;
+  const w=Math.max(20,Number(it.w)||100), h=Math.max(20,Number(it.h)||100);
+  const box=getManualBarTextBox(it);
+  const padX=Math.max(0,Number(it.padX)||0);
+  if(!Number.isFinite(Number(it.textOffsetX))){
+    const absX=Number.isFinite(Number(it.textX))?Number(it.textX):(it.textAlign==='center'?x+(w-box.width)/2:it.textAlign==='right'?x+w-padX-box.width:x+padX);
+    it.textOffsetX=absX-x;
+  }
+  if(!Number.isFinite(Number(it.textOffsetY))){
+    const absY=Number.isFinite(Number(it.textY))?Number(it.textY):y+Math.max(0,(h-box.blockH)/2);
+    it.textOffsetY=absY-y;
+  }
+  it.fit='manual';
+  it.textX=x+Number(it.textOffsetX||0);
+  it.textY=y+Number(it.textOffsetY||0);
+}
+function positionManualBarText(it,content){
+  if(!content)return;
+  const box=getManualBarTextBox(it);
+  const relX=Number(it.textOffsetX)||0, relY=Number(it.textOffsetY)||0;
+  content.style.position='absolute'; content.style.left=relX+'px'; content.style.top=relY+'px';
+  content.style.width=Math.max(box.width,20)+'px'; content.style.height=box.blockH+'px'; content.style.padding='0';
+  content.style.lineHeight=box.lineHeight+'px'; content.style.fontSize=box.fs+'px'; content.style.fontFamily=`'${box.fontName}'`;
+  content.style.fontWeight=String(box.weight); content.style.fontStyle=box.style; content.style.textAlign='left'; content.style.display='block'; content.style.whiteSpace='pre'; content.style.boxSizing='border-box';
+  it.textX=(Number(it.x)||0)+relX; it.textY=(Number(it.y)||0)+relY;
+}
+function fitBar(it,el){
+  const bg=el.querySelector('.bar-bg');
+  const content=el.querySelector('.bar-content');
+  if(bg) bg.style.background=it.bg||'#ffe500';
+  if(it.fit==='manual'){
+    enterManualBar(it);
+    el.classList.add('bar-manual');
+    el.style.width=Math.max(20,Number(it.w)||100)+'px';
+    el.style.height=Math.max(20,Number(it.h)||100)+'px';
+    if(bg){bg.style.left='0';bg.style.top='0';bg.style.width='100%';bg.style.height='100%';}
+    positionManualBarText(it,content);
+    return;
+  }
+  el.classList.remove('bar-manual');
+  const m=measureBarLayout(it,el);
+  it.w=m.targetW; it.h=m.height;
+  el.style.width=it.w+'px'; el.style.height=it.h+'px';
+  if(bg){bg.style.left='0';bg.style.top='0';bg.style.width='100%';bg.style.height='100%';}
+  if(content){
+    const padX=m.padX;
+    const textW=Math.max(20,...m.lines.map(line=>{
+      const c=document.createElement('canvas').getContext('2d'); c.font=fontCss(it).replace(`${Number(it.fontSize)||64}px`,`${m.fs}px`); return c.measureText(line||' ').width;
+    }));
+    it.textX=it.textAlign==='center'?it.x+(it.w-textW)/2:it.textAlign==='right'?it.x+it.w-padX-textW:it.x+padX;
+    it.textY=it.y+(it.h-m.lines.length*m.lineHeight)/2;
+    content.classList.add('bar-auto');
+    content.style.left='0'; content.style.top='0'; content.style.width='100%'; content.style.height='100%';
+    content.style.padding=`${m.pad}px ${padX}px`;
+    content.style.boxSizing='border-box'; content.style.lineHeight=m.lineHeight+'px'; content.style.fontSize=m.fs+'px';
+    content.style.fontFamily=`'${(it.font||'DB Helvethaica X').replace(/[']/g,'')}'`; content.style.fontWeight=String(fontWeightOf(it));
+      content.style.fontStyle=fontStyleOf(it);
+    content.style.display='flex'; content.style.alignItems='center';
+    content.style.justifyContent=it.textAlign==='center'?'center':it.textAlign==='right'?'flex-end':'flex-start';
+    content.style.whiteSpace='pre-wrap';
+  }
+}
+function bind(el,handle,it,rotateHandle=null,barTopHandle=null,barBottomHandle=null){
+  let dragging=false, resizing=false, rotating=false, barTopResizing=false, barBottomResizing=false, pointerId=null;
+  let sx=0,sy=0,ox=0,oy=0,ow=0,oh=0,rotationStart=0,angleStart=0;
+  const cleanup=()=>{
+    window.removeEventListener('pointermove',move);
+    window.removeEventListener('pointerup',end);
+    window.removeEventListener('pointercancel',end);
+    dragging=false; resizing=false; rotating=false; barTopResizing=false; barBottomResizing=false; pointerId=null;
+  };
+  const move=ev=>{
+    if(pointerId!==null && ev.pointerId!==pointerId)return;
+    if(!dragging && !resizing && !rotating && !barTopResizing && !barBottomResizing)return;
+    ev.preventDefault();
+    const sc=currentScale()||1;
+    if(dragging){
+      // Allow an element to be moved anywhere inside the canvas, including
+      // the bottom area. The Properties panel is outside the canvas coordinate space.
+      const nx=ox+(ev.clientX-sx)/sc, ny=oy+(ev.clientY-sy)/sc;
+      const minX=it.w>state.w ? state.w-it.w : 0, maxX=it.w>state.w ? 0 : state.w-it.w;
+      const minY=it.h>state.h ? state.h-it.h : 0, maxY=it.h>state.h ? 0 : state.h-it.h;
+      const prevX=it.x, prevY=it.y;
+      let nextX=Math.max(minX,Math.min(maxX,nx));
+      let nextY=Math.max(minY,Math.min(maxY,ny));
+      // Center guides: show the Canvas center for the whole drag.
+      // Snap by the CENTER of the selected object only. This keeps the object's
+      // position on the other axis unchanged and makes the guide predictable.
+      const snapPx=42/sc;
+      const canvasCx=state.w/2;
+      const nextCx=nextX+it.w/2;
+      // Only the vertical center guide remains: snap on X/left-right axis.
+      // No horizontal center line and no Y/top-bottom center snap.
+      if(Math.abs(nextCx-canvasCx)<=snapPx) nextX=canvasCx-it.w/2;
+      it.x=nextX; it.y=nextY;
+      // Keep only the vertical center guide visible while dragging.
+      showCenterGuides(true,false);
+      el.style.left=it.x+'px'; el.style.top=it.y+'px';
+    }else if(rotating){
+      const rect=el.getBoundingClientRect();
+      const cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+      const angle=Math.atan2(ev.clientY-cy,ev.clientX-cx)*180/Math.PI;
+      let deg=rotationStart+(angle-angleStart);
+      while(deg>180)deg-=360; while(deg<-180)deg+=360;
+      const snapStep=15, snapRange=4;
+      const snapped=Math.round(deg/snapStep)*snapStep;
+      if(Math.abs(deg-snapped)<=snapRange) deg=snapped;
+      it.rotation=Math.round(deg*10)/10;
+      el.style.transform=`rotate(${it.rotation}deg)`;
+    }else if(barTopResizing){
+      const dy=(ev.clientY-sy)/sc;
+      const bottom=oy+oh;
+      const box=getManualBarTextBox(it);
+      const relY=Number(it.textOffsetY)||0;
+      const minH=Math.max(20,relY+box.blockH);
+      // Text position stays fixed; the top edge cannot cross the text block.
+      let ny=Math.max(0,Math.min(bottom-minH,oy+dy));
+      it.y=ny;
+      it.h=Math.max(minH,bottom-ny);
+      el.style.top=it.y+'px'; el.style.height=it.h+'px';
+      const content=el.querySelector('.bar-content');
+      if(content) positionManualBarText(it,content);
+    }else if(barBottomResizing){
+      const dy=(ev.clientY-sy)/sc;
+      const box=getManualBarTextBox(it);
+      const relY=Number(it.textOffsetY)||0;
+      const minH=Math.max(20,relY+box.blockH);
+      // Only the bottom edge changes. Bar top and text absolute position stay fixed.
+      it.h=Math.max(minH,Math.min(state.h-it.y,oh+dy));
+      el.style.height=it.h+'px';
+      const content=el.querySelector('.bar-content');
+      if(content) positionManualBarText(it,content);
+    }else if(resizing){
+      const dw=(ev.clientX-sx)/sc;
+      const dh=(ev.clientY-sy)/sc;
+      if(it.type==='logo'||it.type==='overlay'){
+        // Keep logo/overlay proportions locked while resizing from the bottom-right handle.
+        // The ratio is captured from the original image when the logo is added.
+        const ratio=Number(it.aspectRatio)||(ow/Math.max(1,oh));
+        const nw=Math.max(40,ow+dw);
+        const nh=Math.max(40,nw/ratio);
+        it.w=nw; it.h=nh;
+      }else{
+        it.w=Math.max(40,ow+dw);
+        it.h=Math.max(25,oh+dh);
+      }
+      if(it.type==='bar' && it.fit!=='manual') fitBar(it,el);
+      el.style.width=it.w+'px'; el.style.height=it.h+'px';
+    }
+  };
+  const end=ev=>{
+    if(pointerId!==null && ev.pointerId!==pointerId)return;
+    cleanup(); hideCenterGuides(); snap(); render();
+  };
+  el.addEventListener('pointerdown',e=>{
+    if((handle && e.target===handle)||it.locked)return;
+    e.preventDefault(); e.stopPropagation();
+    state.selected=it.id;
+    dragging=true; pointerId=e.pointerId;
+    sx=e.clientX; sy=e.clientY; ox=it.x; oy=it.y;
+    try{el.setPointerCapture(e.pointerId)}catch(_){}
+    window.addEventListener('pointermove',move,{passive:false});
+    window.addEventListener('pointerup',end,{passive:false});
+    window.addEventListener('pointercancel',end,{passive:false});
+  });
+  if(handle) handle.addEventListener('pointerdown',e=>{
+    if(it.locked)return;
+    if(it.type==='bar' && it.fit!=='manual')return;
+    e.preventDefault(); e.stopPropagation();
+    state.selected=it.id; resizing=true; pointerId=e.pointerId;
+    sx=e.clientX; sy=e.clientY; ow=it.w; oh=it.h;
+    try{handle.setPointerCapture(e.pointerId)}catch(_){}
+    window.addEventListener('pointermove',move,{passive:false});
+    window.addEventListener('pointerup',end,{passive:false});
+    window.addEventListener('pointercancel',end,{passive:false});
+  });
+  const startBarResize=(which,e)=>{
+    if(it.locked)return;
+    if(it.type==='bar' && it.fit!=='manual')return;
+    e.preventDefault(); e.stopPropagation();
+    state.selected=it.id; pointerId=e.pointerId; sx=e.clientX; sy=e.clientY; ox=it.x; oy=it.y; ow=it.w; oh=it.h;
+    if(which==='top') barTopResizing=true; else barBottomResizing=true;
+    try{(which==='top'?barTopHandle:barBottomHandle).setPointerCapture(e.pointerId)}catch(_){}
+    window.addEventListener('pointermove',move,{passive:false});
+    window.addEventListener('pointerup',end,{passive:false});
+    window.addEventListener('pointercancel',end,{passive:false});
+  };
+  if(barTopHandle) barTopHandle.addEventListener('pointerdown',e=>startBarResize('top',e));
+  if(barBottomHandle) barBottomHandle.addEventListener('pointerdown',e=>startBarResize('bottom',e));
+  if(rotateHandle) rotateHandle.addEventListener('pointerdown',e=>{
+    if(it.locked)return;
+    e.preventDefault(); e.stopPropagation();
+    state.selected=it.id; rotating=true; pointerId=e.pointerId;
+    const rect=el.getBoundingClientRect();
+    const cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+    angleStart=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI;
+    rotationStart=Number(it.rotation)||0;
+    try{rotateHandle.setPointerCapture(e.pointerId)}catch(_){}
+    window.addEventListener('pointermove',move,{passive:false});
+    window.addEventListener('pointerup',end,{passive:false});
+    window.addEventListener('pointercancel',end,{passive:false});
+  });
+  el.addEventListener('click',e=>{e.stopPropagation();hideCenterGuides();state.selected=it.id;render()});
+}
+function currentScale(){return document.querySelector('.canvas-wrap').getBoundingClientRect().width/state.w}
+canvas.addEventListener('click',()=>{state.selected=null;propsOpen=false;render()});
+function isPropertyEditing(){
+  const a=document.activeElement;
+  return !!a && (a.id==='ptext'||a.id==='pfs'||a.id==='pfont'||a.id==='pc'||a.id==='pbg'||a.id==='pfit'||a.id==='pzoom'||a.id==='ppad'||a.id==='px'||a.id==='py'||a.id==='pw'||a.id==='ph'||a.id==='gop'||a.id==='gh');
+}
+window.addEventListener('resize',()=>{ updateViewportHeight(); if(!isPropertyEditing()) render(); });
+function renderLayers(){
+  layers.innerHTML='';
+  const visible=[...state.items].sort((a,b)=>{
+    const rank=t=>t==='image'?0:t==='gradient'?1:t==='overlay'?2:t==='freebar'?2.5:3;
+    const ra=rank(a.type), rb=rank(b.type);
+    if(ra!==rb) return rb-ra;
+    return state.items.indexOf(b)-state.items.indexOf(a);
+  });
+  visible.forEach((it,displayIndex)=>{
+    const d=document.createElement('div');
+    d.className='layer'+(state.selected===it.id?' active':'');
+    d.draggable=it.type!=='image';
+    const icon=it.type==='image'?'🖼️ ':it.type==='gradient'?'🌑 ':it.type==='overlay'?'🖼️➕ ':it.type==='logo'?'🏷️ ':it.type==='bar'?'🟨 ':it.type==='freebar'?'🟨 ':'T ';
+    const layerLabel=it.type==='freebar'?(it.label||'bar'):(it.text||it.type);
+    d.innerHTML=`<div class="layer-name">${icon}${esc(layerLabel)}</div><div class="layer-actions"><button type="button" title="เลื่อนขึ้น">▲</button><button type="button" title="เลื่อนลง">▼</button></div>`;
+    d.onclick=()=>{state.selected=it.id;render()};
+    const [up,down]=d.querySelectorAll('button');
+    const nonImages=state.items.filter(x=>x.type!=='image' && x.type!=='gradient');
+    const pos=nonImages.findIndex(x=>x.id===it.id);
+    if(it.type==='image' || it.type==='gradient'){up.disabled=true;down.disabled=true;}
+    else{
+      up.disabled=pos===nonImages.length-1;
+      down.disabled=pos===0;
+      up.onclick=e=>{e.stopPropagation();reorderLayer(it.id,1)};
+      down.onclick=e=>{e.stopPropagation();reorderLayer(it.id,-1)};
+    }
+    if(it.type!=='image'){
+      d.addEventListener('dragstart',()=>{d.classList.add('dragging');d.dataset.dragId=it.id});
+      d.addEventListener('dragend',()=>d.classList.remove('dragging'));
+      d.addEventListener('dragover',e=>{e.preventDefault();});
+      d.addEventListener('drop',e=>{e.preventDefault();const from=d.dataset.dragId||document.querySelector('.layer.dragging')?.dataset.dragId;if(from && from!==it.id)reorderLayerBefore(from,it.id)});
+    }
+    layers.appendChild(d);
+  });
+}
+function reorderLayer(id,dir){
+  const idx=state.items.findIndex(x=>x.id===id); if(idx<0)return;
+  if(state.items[idx].type==='image')return;
+  const movable=state.items.map((x,i)=>({x,i})).filter(o=>o.x.type!=='image');
+  const p=movable.findIndex(o=>o.x.id===id); const q=p+dir;
+  if(p<0||q<0||q>=movable.length)return;
+  snap();
+  const a=movable[p].i,b=movable[q].i; [state.items[a],state.items[b]]=[state.items[b],state.items[a]];
+  render();
+}
+function reorderLayerBefore(fromId,toId){
+  const from=state.items.findIndex(x=>x.id===fromId), to=state.items.findIndex(x=>x.id===toId);
+  if(from<0||to<0||state.items[from].type==='image'||state.items[to].type==='image')return;
+  snap();
+  const [item]=state.items.splice(from,1); const target=state.items.findIndex(x=>x.id===toId); state.items.splice(target,0,item); render();
+}
+function bindCanvasBackground(){
+ const q=document.getElementById('canvasBg'), v=document.getElementById('canvasBgval');
+ if(!q)return;
+ q.oninput=()=>{ state.bgColor=q.value||'#000000'; if(v)v.textContent=state.bgColor; canvas.style.backgroundColor=state.bgColor; saveDraft(); };
+}
+function renderProps(){
+ const it=state.items.find(x=>x.id===state.selected);
+ const bg=state.bgColor||'#000000';
+ let html=`<div class="field"><label>สีพื้นหลังหน้าออกแบบ</label><div class="colorbox"><input id="canvasBg" type="color" value="${bg}"><span id="canvasBgval">${bg}</span></div></div><div class="small" style="margin-top:-4px;margin-bottom:12px">ค่าเริ่มต้นเป็นสีดำ #000000 และจะถูกใช้เมื่อยังไม่มีภาพพื้นหลัง</div>`;
+ if(!it){props.innerHTML=html+'<div class="empty">เลือกองค์ประกอบบน Canvas เพื่อแก้ไข หรือเปลี่ยนสีพื้นหลังได้จากด้านบน</div>';document.querySelector('.right')?.classList.remove('has-selection');bindCanvasBackground();return}
+ document.querySelector('.right')?.classList.add('has-selection');
+ html+=`<div class="small">${it.type.toUpperCase()}</div>`;
+ if(it.type==='image'){it.zoom=Number(it.zoom)||1; html+=`<div class="field"><label>Zoom ภาพ <span id="pzoomval">${Math.round(it.zoom*100)}%</span></label><div class="row"><button class="btn" id="zoomout" type="button">−</button><input id="pzoom" type="range" min="1" max="3" step="0.05" value="${it.zoom}" style="width:100%"><button class="btn" id="zoomin" type="button">＋</button></div></div>`;}
+ if(it.type==='overlay'){it.shape=it.shape||'circle';it.borderWidth=Number.isFinite(Number(it.borderWidth))?Number(it.borderWidth):6;it.borderColor=it.borderColor||'#ffffff';it.cropZoom=Number.isFinite(Number(it.cropZoom))?Number(it.cropZoom):1;it.cropX=Number.isFinite(Number(it.cropX))?Number(it.cropX):0;it.cropY=Number.isFinite(Number(it.cropY))?Number(it.cropY):0;html+=`<div class="field"><label>รูปแบบกรอบ</label><select id="oshape"><option value="square" ${it.shape==='square'?'selected':''}>สี่เหลี่ยม</option><option value="rounded" ${it.shape==='rounded'?'selected':''}>สี่เหลี่ยมมุมมน</option><option value="circle" ${it.shape==='circle'?'selected':''}>วงกลม</option><option value="ellipse" ${it.shape==='ellipse'?'selected':''}>วงรี</option><option value="horizontal" ${it.shape==='horizontal'?'selected':''}>กรอบแนวนอน</option><option value="vertical" ${it.shape==='vertical'?'selected':''}>กรอบแนวตั้ง</option><option value="diamond" ${it.shape==='diamond'?'selected':''}>ข้าวหลามตัด ◆</option><option value="hexagon" ${it.shape==='hexagon'?'selected':''}>หกเหลี่ยม ⬡</option><option value="chamfer" ${it.shape==='chamfer'?'selected':''}>ตัดมุม ⬟</option></select></div><div class="field"><label>ขนาดภาพภายในกรอบ <span id="ocropzval" class="small" style="float:right">${Math.round(it.cropZoom*100)}%</span></label><div class="font-size-control"><button class="btn font-size-btn" id="ocropzminus" type="button">−</button><input id="ocropz" type="range" min="0.5" max="3" step="0.05" value="${it.cropZoom}"><button class="btn font-size-btn" id="ocropzplus" type="button">＋</button></div></div><div class="field"><label>ตำแหน่งภาพแนวนอน <span id="ocropxval" class="small" style="float:right">${Math.round(it.cropX)}%</span></label><input id="ocropx" type="range" min="-100" max="100" step="1" value="${it.cropX}"></div><div class="field"><label>ตำแหน่งภาพแนวตั้ง <span id="ocropyval" class="small" style="float:right">${Math.round(it.cropY)}%</span></label><input id="ocropy" type="range" min="-100" max="100" step="1" value="${it.cropY}"></div><div class="field"><label>ความหนากรอบ <span id="obwval" class="small" style="float:right">${it.borderWidth}px</span></label><input id="obw" type="range" min="0" max="20" step="1" value="${it.borderWidth}"></div><div class="field"><label>สีกรอบ</label><div class="colorbox"><input id="obc" type="color" value="${it.borderColor}"><span id="obcval">${it.borderColor}</span></div></div><div class="field"><label>เปลี่ยนภาพ</label><button class="btn" id="replaceOverlay" type="button" style="width:100%">🖼️ เลือกภาพใหม่</button></div>`;}
+ if(it.type==='freebar'){
+   it.bg=it.bg||'#ffe500'; it.opacity=Number.isFinite(Number(it.opacity))?Number(it.opacity):1; it.borderColor=it.borderColor||'#000000'; it.borderWidth=Number.isFinite(Number(it.borderWidth))?Number(it.borderWidth):0; it.radius=Number.isFinite(Number(it.radius))?Number(it.radius):0;
+   html+=`<div class="field"><label>สีบาร์</label><div class="colorbox"><input id="pfbg" type="color" value="${it.bg}"><span id="pfbgval">${it.bg}</span></div></div><div class="field"><label>Opacity <span id="pfopval" class="small" style="float:right">${Math.round(it.opacity*100)}%</span></label><input id="pfop" type="range" min=0 max=1 step=0.01 value="${it.opacity}"></div><div class="field"><label>มุมโค้ง <span id="pfrval" class="small" style="float:right">${it.radius}px</span></label><input id="pfr" type="range" min=0 max=80 step=1 value="${it.radius}"></div><div class="field"><label>สีกรอบ</label><div class="colorbox"><input id="pfbc" type="color" value="${it.borderColor}"><span id="pfbcval">${it.borderColor}</span></div></div><div class="field"><label>ความหนากรอบ <span id="pfbwval" class="small" style="float:right">${it.borderWidth}px</span></label><input id="pfbw" type="range" min=0 max=20 step=1 value="${it.borderWidth}"></div><div class="small">🟨 บาร์อิสระ: ลากทั้งบาร์เพื่อย้าย และลากขอบบน/ล่าง/ซ้าย/ขวาเพื่อครอปโดยไม่กระทบข้อความ</div>`;
+ }
+ if(it.type==='gradient'){it.color=it.color||'#000000';it.opacity=Number.isFinite(Number(it.opacity))?Number(it.opacity):0.85;it.heightRatio=Number.isFinite(Number(it.heightRatio))?Number(it.heightRatio):0.40;html+=`<div class="field"><label>สีพื้นไล่เฉด</label><div class="colorbox"><input id="gcolor" type="color" value="${it.color}"><span id="gcolorval">${it.color}</span></div></div><div class="field"><label>ความเข้มของสี <span id="gopval" class="small" style="float:right">${Math.round(it.opacity*100)}%</span></label><input id="gop" type="range" min="0" max="1" step="0.01" value="${it.opacity}"></div><div class="field"><label>ความสูงของไล่เฉด <span id="ghval" class="small" style="float:right">${Math.round(it.heightRatio*100)}%</span></label><input id="gh" type="range" min="0.15" max="1" step="0.01" value="${it.heightRatio}"></div><div class="row"><button class="btn" id="gh30" type="button">30%</button><button class="btn" id="gh40" type="button">40%</button><button class="btn" id="gh50" type="button">50%</button><button class="btn" id="gh60" type="button">60%</button><button class="btn" id="gh70" type="button">70%</button></div><div class="small">เลือกสีของไล่เฉดได้อิสระ โดยค่าเริ่มต้นเป็นสีดำ #000000 และขอบล่างจะติดด้านล่าง Canvas เสมอ</div>`;}
+ if(it.type==='text'||it.type==='bar'){
+ html+=`<div class="field"><label>ข้อความ</label><textarea id="ptext" style="width:100%;min-height:70px;padding:8px;border:1px solid #d6dce4;border-radius:7px">${esc(it.text)}</textarea></div>
+ <div class="field"><label>ขนาดตัวอักษร <span id="pfsval" class="small" style="float:right">${it.fontSize}px</span></label><div class="font-size-control"><button class="btn font-size-btn" id="pfsminus" type="button">−</button><input id="pfs" type="range" min="12" max="500" step="1" value="${it.fontSize}" aria-label="ขนาดตัวอักษร"><button class="btn font-size-btn" id="pfsplus" type="button">＋</button></div></div><div class="field"><label>ฟอนต์</label><select id="pfont">${fontOptions(it.font||'DB Helvethaica X')}</select></div>
+<div class="field"><label>น้ำหนักตัวอักษร</label><select id="pweight">${fontWeightOptions(fontWeightOf(it))}</select></div>
+<div class="field"><label>รูปแบบ</label><select id="pstyle">${fontStyleOptions(fontStyleOf(it))}</select></div>
+<div class="field"><label>สีตัวอักษร</label><div class="colorbox"><input id="pc" type="color" value="${it.color}"><span id="pcval">${it.color}</span></div></div>`;
+ if(it.type==='bar') html+=`<div class="field"><label>สีแถบ</label><div class="colorbox"><input id="pbg" type="color" value="${it.bg}"><span id="pbgval">${it.bg}</span></div></div><div class="field"><label>โหมดแถบ</label><select id="pfit">
+<option value="text" ${it.fit==='text'?'selected':''}>พอดีกับข้อความอัตโนมัติ</option>
+<option value="full" ${it.fit==='full'?'selected':''}>เต็มความกว้าง</option>
+<option value="manual" ${it.fit==='manual'?'selected':''}>กำหนดกว้าง/สูงเอง</option>
+</select></div><div class="small" style="margin-top:-4px;margin-bottom:8px">💡 Auto = ปรับอัตโนมัติตลอดจนกว่าจะเลือก Manual / Manual = ปรับกรอบแถบเอง โดยไม่ขยับตัวหนังสือ</div><div class="field"><label>ระยะห่างบน–ล่างของข้อความ <span id="ppadval" class="small" style="float:right">${Number(it.pad)||0}px</span></label><input id="ppad" type="range" min="4" max="40" step="1" value="${Number(it.pad)||0}"></div>`;
+ }
+ if(it.type==='logo'||it.type==='overlay') html+=`<div class="field"><label>หมุนภาพ <span id="protval" class="small" style="float:right">${Math.round(Number(it.rotation)||0)}°</span></label><input id="prot" type="range" min="-180" max="180" step="1" value="${Number(it.rotation)||0}"></div>`;
+ html+=`<div class="row"><div class="field"><label>X</label><input id="px" type="number" value="${Math.round(it.x)}"></div><div class="field"><label>Y</label><input id="py" type="number" value="${Math.round(it.y)}"></div></div>
+ <div class="row"><div class="field"><label>กว้าง</label><input id="pw" type="number" value="${Math.round(it.w)}"></div><div class="field"><label>สูง</label><input id="ph" type="number" value="${Math.round(it.h)}"></div></div>
+ <div class="field"><label>จัดตำแหน่งข้อความกับภาพ</label><div class="row"><button class="btn" id="alignX" type="button">↔️ Center X</button><button class="btn" id="alignY" type="button">↕️ Center Y</button></div><button class="btn" id="alignBoth" type="button" style="width:100%;margin-top:7px">🎯 Center X + Y</button><div class="small" style="margin-top:6px">Center X จะย้ายเฉพาะซ้าย–ขวาไปกึ่งกลางภาพ โดยตำแหน่งบน–ล่างและมุมมอง Canvas ไม่เปลี่ยน</div></div>
+ <button class="btn" id="lock">${it.locked?'🔓 ปลดล็อก':'🔒 ล็อก'}</button> <button class="btn" id="del">ลบ</button>`;
+ props.innerHTML=html;
+ bindCanvasBackground();
+ props.querySelectorAll('input,textarea,select,button').forEach(q=>q.addEventListener('pointerdown',e=>e.stopPropagation()));
+ const elById=()=>document.querySelector('.item[data-id="'+it.id+'"]');
+ const sync=()=>{
+   const el=elById(); if(!el)return;
+   el.style.left=it.x+'px'; el.style.top=it.y+'px'; el.style.width=it.w+'px'; el.style.height=it.h+'px';
+   if(it.type==='image'){const im=el.querySelector('img');if(im){it.zoom=Number(it.zoom)||1;im.style.transform=`scale(${it.zoom})`;im.style.objectFit='cover'}el.style.overflow='hidden'}
+   if(it.type==='overlay'){const im=el.querySelector('img');it.cropZoom=Number.isFinite(Number(it.cropZoom))?Number(it.cropZoom):1;it.cropX=Number.isFinite(Number(it.cropX))?Number(it.cropX):0;it.cropY=Number.isFinite(Number(it.cropY))?Number(it.cropY):0;applyOverlayShape(el,it);if(im){im.style.objectFit='cover';im.style.width='100%';im.style.height='100%';im.style.transform=`translate(${it.cropX}%,${it.cropY}%) scale(${it.cropZoom})`}}
+   if(it.type==='text'){el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left'}
+   if(it.type==='bar'){el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';let bg=el.querySelector('.bar-bg'),bc=el.querySelector('.bar-content');if(!bg){bg=document.createElement('div');bg.className='bar-bg';el.prepend(bg)}if(!bc){bc=document.createElement('div');bc.className='bar-content';el.appendChild(bc)}bc.textContent=it.text;fitBar(it,el)}
+   if(it.type==='gradient'){it.color=it.color||'#000000';el.style.background=`linear-gradient(to bottom, ${rgba(it.color,0)} 0%, ${rgba(it.color,it.opacity*0.12)} 18%, ${rgba(it.color,it.opacity*0.48)} 55%, ${rgba(it.color,it.opacity)} 100%)`;el.style.top=it.y+'px';el.style.height=it.h+'px';}
+   saveDraft();
+ };
+ const bindv=(id,fn)=>{const q=document.getElementById(id);if(q)q.oninput=()=>{fn(q.value);sync()}}
+ if(document.getElementById('ptext'))bindv('ptext',v=>it.text=v);
+ if(document.getElementById('pfs')){const fsq=document.getElementById('pfs'), fsv=document.getElementById('pfsval'); const setFontSize=v=>{it.fontSize=Math.max(12,Math.min(500,Math.round(+v||12))); fsq.value=it.fontSize; if(fsv)fsv.textContent=it.fontSize+'px'; sync();}; fsq.oninput=()=>setFontSize(fsq.value); const minus=document.getElementById('pfsminus'), plus=document.getElementById('pfsplus'); if(minus)minus.onclick=()=>setFontSize(it.fontSize-2); if(plus)plus.onclick=()=>setFontSize(it.fontSize+2);}
+ if(document.getElementById('pfont')){ const q=document.getElementById('pfont'); q.onchange=async()=>{ it.font=q.value; try{ await document.fonts.load(`400 64px '${it.font.replace(/[']/g,'')}'`); }catch(e){} sync(); renderProps(); }; }
+ if(document.getElementById('pweight'))bindv('pweight',v=>it.fontWeight=Number(v));
+ if(document.getElementById('pstyle'))bindv('pstyle',v=>it.fontStyle=v);
+ if(document.getElementById('pc'))bindv('pc',v=>{it.color=v;const z=document.getElementById('pcval');if(z)z.textContent=v});
+ if(document.getElementById('pbg'))bindv('pbg',v=>{it.bg=v;const z=document.getElementById('pbgval');if(z)z.textContent=v});
+ if(document.getElementById('pfit'))document.getElementById('pfit').onchange=()=>{
+   const mode=document.getElementById('pfit').value;
+   if(mode==='manual'){
+     // Manual is an explicit opt-in. Capture the current Auto geometry first,
+     // then freeze the text position as absolute canvas coordinates.
+     if(it.fit!=='manual') fitBar(it,elById());
+     enterManualBar(it);
+   }else{
+     it.fit=mode; delete it.textX; delete it.textY; delete it.textOffsetX; delete it.textOffsetY;
+   }
+   if(mode==='full')it.w=Math.max(40,state.w-it.x);
+   sync();
+ };
+ if(document.getElementById('ppad')){const pq=document.getElementById('ppad'), pv=document.getElementById('ppadval'); const setPad=v=>{it.pad=Math.max(4,Math.min(40,Math.round(+v||4))); pq.value=it.pad; if(pv)pv.textContent=it.pad+'px'; sync();}; pq.oninput=()=>setPad(pq.value);}
+ if(document.getElementById('gcolor')){const q=document.getElementById('gcolor'),v=document.getElementById('gcolorval');q.oninput=()=>{it.color=q.value;if(v)v.textContent=q.value;const el=elById();if(el)el.style.background=`linear-gradient(to bottom, ${rgba(it.color,0)} 0%, ${rgba(it.color,it.opacity*0.12)} 18%, ${rgba(it.color,it.opacity*0.48)} 55%, ${rgba(it.color,it.opacity)} 100%)`;saveDraft()};}
+ if(document.getElementById('gop')){const oq=document.getElementById('gop'), ov=document.getElementById('gopval'); oq.oninput=()=>{it.opacity=Math.max(0,Math.min(1,+oq.value||0));ov.textContent=Math.round(it.opacity*100)+'%';const el=elById();if(el)el.style.background=`linear-gradient(to bottom, ${rgba(it.color||'#000000',0)} 0%, ${rgba(it.color||'#000000',it.opacity*0.12)} 18%, ${rgba(it.color||'#000000',it.opacity*0.48)} 55%, ${rgba(it.color||'#000000',it.opacity)} 100%)`;saveDraft()};}
+ if(document.getElementById('gh')){const hq=document.getElementById('gh'), hv=document.getElementById('ghval'); const setGH=v=>{it.heightRatio=Math.max(.15,Math.min(1,Number(v)||.45));it.h=Math.round(state.h*it.heightRatio);it.y=Math.max(0,state.h-it.h);hq.value=it.heightRatio;hv.textContent=Math.round(it.heightRatio*100)+'%';sync();saveDraft()}; hq.oninput=()=>setGH(hq.value); ['30','40','50','60','70'].forEach(v=>{const b=document.getElementById('gh'+v);if(b)b.onclick=()=>setGH(Number(v)/100)});}
+ if(document.getElementById('pfbg')){const q=document.getElementById('pfbg'),v=document.getElementById('pfbgval');q.oninput=()=>{it.bg=q.value;if(v)v.textContent=q.value;const el=elById();if(el)el.style.background=it.bg;saveDraft()};}
+ if(document.getElementById('pfop')){const q=document.getElementById('pfop'),v=document.getElementById('pfopval');q.oninput=()=>{it.opacity=Math.max(0,Math.min(1,+q.value||0));if(v)v.textContent=Math.round(it.opacity*100)+'%';const el=elById();if(el)el.style.opacity=it.opacity;saveDraft()};}
+ if(document.getElementById('pfr')){const q=document.getElementById('pfr'),v=document.getElementById('pfrval');q.oninput=()=>{it.radius=Math.max(0,Math.min(80,+q.value||0));if(v)v.textContent=it.radius+'px';const el=elById();if(el)el.style.borderRadius=it.radius+'px';saveDraft()};}
+ if(document.getElementById('pfbc')){const q=document.getElementById('pfbc'),v=document.getElementById('pfbcval');q.oninput=()=>{it.borderColor=q.value;if(v)v.textContent=q.value;const el=elById();if(el)el.style.borderColor=it.borderColor;saveDraft()};}
+ if(document.getElementById('pfbw')){const q=document.getElementById('pfbw'),v=document.getElementById('pfbwval');q.oninput=()=>{it.borderWidth=Math.max(0,Math.min(20,+q.value||0));if(v)v.textContent=it.borderWidth+'px';const el=elById();if(el)el.style.borderWidth=it.borderWidth+'px';saveDraft()};}
+ if(document.getElementById('oshape')){document.getElementById('oshape').onchange=()=>{it.shape=document.getElementById('oshape').value;if(it.shape==='circle'||it.shape==='square'){const s=Math.max(40,Math.min(it.w,it.h));it.w=s;it.h=s;}else if(it.shape==='horizontal'){const cy=it.y+it.h/2;it.w=Math.max(160,it.w);it.h=Math.max(40,Math.round(it.w/1.6));it.y=Math.max(0,Math.min(state.h-it.h,cy-it.h/2));}else if(it.shape==='vertical'){const cx=it.x+it.w/2;it.h=Math.max(160,it.h);it.w=Math.max(40,Math.round(it.h/1.6));it.x=Math.max(0,Math.min(state.w-it.w,cx-it.w/2));}sync();renderProps();}}
+ if(document.getElementById('obw')){const q=document.getElementById('obw'),v=document.getElementById('obwval');q.oninput=()=>{it.borderWidth=Math.max(0,Math.min(20,+q.value||0));if(v)v.textContent=it.borderWidth+'px';sync();}}
+ if(document.getElementById('obc')){const q=document.getElementById('obc'),v=document.getElementById('obcval');q.oninput=()=>{it.borderColor=q.value;if(v)v.textContent=q.value;sync();}}
+ if(document.getElementById('ocropz')){const q=document.getElementById('ocropz'),v=document.getElementById('ocropzval');const set=vx=>{it.cropZoom=Math.max(.5,Math.min(3,+vx||1));q.value=it.cropZoom;if(v)v.textContent=Math.round(it.cropZoom*100)+'%';sync()};q.oninput=()=>set(q.value);document.getElementById('ocropzminus').onclick=()=>set(it.cropZoom-.05);document.getElementById('ocropzplus').onclick=()=>set(it.cropZoom+.05);}
+ if(document.getElementById('ocropx')){const q=document.getElementById('ocropx'),v=document.getElementById('ocropxval');q.oninput=()=>{it.cropX=Math.max(-100,Math.min(100,+q.value||0));v.textContent=Math.round(it.cropX)+'%';sync()};}
+ if(document.getElementById('ocropy')){const q=document.getElementById('ocropy'),v=document.getElementById('ocropyval');q.oninput=()=>{it.cropY=Math.max(-100,Math.min(100,+q.value||0));v.textContent=Math.round(it.cropY)+'%';sync()};}
+ if(document.getElementById('replaceOverlay'))document.getElementById('replaceOverlay').onclick=()=>{pending='replaceOverlay';document.getElementById('overlayFile').click();};
+ if(document.getElementById('pzoom')){const zq=document.getElementById('pzoom'), zv=document.getElementById('pzoomval'); const setZoom=v=>{it.zoom=Math.max(1,Math.min(3,+v||1));zq.value=it.zoom;zv.textContent=Math.round(it.zoom*100)+'%';sync()}; zq.oninput=()=>setZoom(zq.value); document.getElementById('zoomout').onclick=()=>setZoom(it.zoom-0.1); document.getElementById('zoomin').onclick=()=>setZoom(it.zoom+0.1);}
+ ['px','py'].forEach(k=>bindv(k,v=>{
+   const n=Math.max(0,+v||0);
+   if(k==='px'){
+     const oldX=it.x; it.x=Math.min(n,Math.max(0,state.w-it.w));
+   }
+   if(k==='py'){
+     const oldY=it.y; it.y=Math.min(n,Math.max(0,state.h-it.h));
+   }
+ }));
+ const pw=document.getElementById('pw'), ph=document.getElementById('ph');
+ if(pw) pw.oninput=()=>{
+   const n=Math.max(20,+pw.value||20);
+   if(it.type==='logo'||it.type==='overlay'){
+     const ratio=Number(it.aspectRatio)||(it.w/Math.max(1,it.h));
+     it.w=n; it.h=Math.max(20,n/ratio);
+     if(ph) ph.value=Math.round(it.h);
+   }else it.w=n;
+   sync();
+ };
+ if(ph) ph.oninput=()=>{
+   const n=Math.max(20,+ph.value||20);
+   if(it.type==='logo'||it.type==='overlay'){
+     const ratio=Number(it.aspectRatio)||(it.w/Math.max(1,it.h));
+     it.h=n; it.w=Math.max(20,n*ratio);
+     if(pw) pw.value=Math.round(it.w);
+   }else {
+     if(it.type==='bar' && it.fit==='manual'){
+       const box=getManualBarTextBox(it);
+       const relY=Number(it.textOffsetY)||0;
+       it.h=Math.max(n,relY+box.blockH);
+     }else it.h=n;
+   }
+   sync();
+ };
+ const prot=document.getElementById('prot');
+ if(prot){ prot.oninput=()=>{ it.rotation=Number(prot.value)||0; const rv=document.getElementById('protval'); if(rv)rv.textContent=Math.round(it.rotation)+'°'; const el=elById(); if(el)el.style.transform=`rotate(${it.rotation}deg)`; saveDraft(); }; prot.onchange=()=>{snap();render();}; }
+ const updateAlignedElement=()=>{
+   const el=elById();
+   if(!el)return;
+   el.style.left=it.x+'px';
+   el.style.top=it.y+'px';
+   if(it.type==='text'||it.type==='bar') el.style.textAlign=it.textAlign||'left';
+ };
+ const alignX=()=>{
+   if(it.locked)return;
+   // Recalculate the real text box first. In earlier versions a stale/too-small
+   // width (sometimes only the first Thai glyph) could make Center X center that
+   // tiny box instead of the whole text.
+   if(it.type==='text'||it.type==='bar'){
+     const m=measureTextMetrics(it);
+     if(it.type==='text'){ it.w=m.w; it.h=m.h; }
+     else if(it.fit==='text'){ it.w=Math.max(20,m.w+(Number(it.padX)||0)*2); it.h=Math.max(20,m.h+(Number(it.pad)||0)*2); }
+   }
+   // Center only on X. Preserve the object's exact Y position.
+   const keepY=it.y;
+   it.x=Math.round((state.w-it.w)/2);
+   it.y=keepY;
+   if(it.type==='text'||it.type==='bar') it.textAlign='center';
+   hideCenterGuides();
+   updateAlignedElement();
+   renderProps();
+ };
+ const alignY=()=>{
+   if(it.locked)return;
+   // Center only on Y. Preserve the object's exact X position and viewport scroll.
+   const keepX=it.x;
+   it.y=Math.round((state.h-it.h)/2);
+   it.x=keepX;
+   if(it.type==='text'||it.type==='bar') it.textAlign='center';
+   hideCenterGuides();
+   updateAlignedElement();
+   renderProps();
+ };
+ const alignBoth=()=>{
+   if(it.locked)return;
+   it.x=Math.round((state.w-it.w)/2);
+   it.y=Math.round((state.h-it.h)/2);
+   if(it.type==='text'||it.type==='bar') it.textAlign='center';
+   hideCenterGuides();
+   updateAlignedElement();
+   renderProps();
+ };
+ document.getElementById('alignX').onclick=alignX;
+ document.getElementById('alignY').onclick=alignY;
+ document.getElementById('alignBoth').onclick=alignBoth;
+ document.getElementById('lock').onclick=()=>{snap();it.locked=!it.locked;render()};
+ document.getElementById('del').onclick=()=>{snap();state.items=state.items.filter(x=>x.id!==it.id);state.selected=null;render()};
+}
+function hexToRgb(hex){hex=String(hex||'#000000').trim();if(/^#[0-9a-fA-F]{6}$/.test(hex))return hex.slice(1).match(/../g).map(v=>parseInt(v,16));if(/^#[0-9a-fA-F]{3}$/.test(hex)){const h=hex.slice(1);return [parseInt(h[0]+h[0],16),parseInt(h[1]+h[1],16),parseInt(h[2]+h[2],16)]}return [0,0,0]}
+function rgba(hex,a){const [r,g,b]=hexToRgb(hex);return `rgba(${r},${g},${b},${Math.max(0,Math.min(1,Number(a)||0))})`}
+function esc(s){return s.replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function newId(){return Math.random().toString(36).slice(2)}
+function add(type,src=''){
+ snap(); const it={id:newId(),type,x:40,y:40,w:type==='bar'?500:360,h:type==='bar'?100:240,locked:false};
+ if(type==='text'){it.text='ข่าวเด่นวันนี้';it.fontSize=64;it.color='#ffffff';it.font='DB Helvethaica X';it.fontWeight=700;it.fontStyle='normal'}
+ if(type==='bar'){it.text='ข่าวเด่นวันนี้';it.fontSize=64;it.color='#111111';it.bg='#ffe500';it.font='DB Helvethaica X';it.fontWeight=700;it.fontStyle='normal';it.fit='text';it.pad=6;it.padX=18}
+ if(type==='gradient'){it.x=0;it.y=Math.round(state.h*0.55);it.w=state.w;it.h=Math.round(state.h*0.45);it.color='#000000';it.opacity=0.85;it.heightRatio=0.40;it.locked=false}
+ if(type==='image'||type==='logo'){it.src=src;it.w=type==='logo'?260:900;it.h=type==='logo'?160:600}
+ state.items.push(it);state.selected=it.id;render()
+}
+function addFreeBar(){
+  snap();
+  const w=Math.min(760,state.w-80), h=130;
+  const freeBars=state.items.filter(x=>x.type==='freebar'); const usedLabels=new Set(freeBars.map(x=>x.label).filter(Boolean)); let n=0; let label='bar'; while(usedLabels.has(label)){ n++; label='bar'+n; } const it={id:newId(),type:'freebar',label,x:Math.max(0,Math.round((state.w-w)/2)),y:Math.round(state.h*0.55),w,h,locked:false,bg:'#ffe500',opacity:1,radius:0,borderColor:'#000000',borderWidth:0};
+
+  // Each click creates a genuinely new independent layer.
+  // Put it directly behind the currently selected text when possible;
+  // otherwise put it behind the top-most text layer.  Do not reuse/splice
+  // the same object or id, so multiple free bars can coexist.
+  let insertAt=state.items.length;
+  const selectedIndex=state.items.findIndex(x=>x.id===state.selected);
+  if(selectedIndex>=0 && state.items[selectedIndex].type==='text') insertAt=selectedIndex;
+  else {
+    const lastText=state.items.reduce((acc,x,i)=>x.type==='text'?i:acc,-1);
+    if(lastText>=0) insertAt=lastText;
+  }
+  state.items.splice(insertAt,0,it);
+  state.selected=it.id;
+  render();
+}
+function bindFreeBarResize(el,it){
+  const handles=[...el.querySelectorAll('.freebar-resize')];
+  handles.forEach(handle=>handle.addEventListener('pointerdown',e=>{
+    if(it.locked)return; e.preventDefault(); e.stopPropagation();
+    state.selected=it.id;
+    const side=handle.dataset.side, sc=currentScale()||1;
+    const sx=e.clientX, sy=e.clientY, ox=it.x, oy=it.y, ow=it.w, oh=it.h;
+    const min=20;
+    const move=ev=>{
+      ev.preventDefault(); const dx=(ev.clientX-sx)/sc, dy=(ev.clientY-sy)/sc;
+      if(side==='left'){ const nx=Math.max(0,Math.min(ox+ow-min,ox+dx)); it.x=nx; it.w=ow+(ox-nx); }
+      else if(side==='right'){ it.w=Math.max(min,Math.min(state.w-it.x,ow+dx)); }
+      else if(side==='top'){ const ny=Math.max(0,Math.min(oy+oh-min,oy+dy)); it.y=ny; it.h=oh+(oy-ny); }
+      else if(side==='bottom'){ it.h=Math.max(min,Math.min(state.h-it.y,oh+dy)); }
+      el.style.left=it.x+'px'; el.style.top=it.y+'px'; el.style.width=it.w+'px'; el.style.height=it.h+'px';
+    };
+    const end=()=>{window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);snap();render()};
+    window.addEventListener('pointermove',move,{passive:false});window.addEventListener('pointerup',end,{once:true});window.addEventListener('pointercancel',end,{once:true});
+  }));
+}
+function choose(type){pending=type;document.getElementById('file').click()}
+document.getElementById('addText').onclick=()=>add('text');document.getElementById('addBar').onclick=()=>add('bar');document.getElementById('addFreeBar').onclick=()=>addFreeBar();document.getElementById('addGradient').onclick=()=>add('gradient');document.getElementById('addImage').onclick=()=>choose('image');document.getElementById('addOverlay').onclick=()=>choose('overlay');document.getElementById('addLogo').onclick=()=>choose('logo');
+function handleImageFile(f,type){
+  if(!f) return;
+  const kind=type||pending||'image';
+  // Keep a self-contained Data URL. Blob URLs can be revoked or become invalid
+  // after a re-render on Android, which caused broken images in earlier versions.
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const src=reader.result;
+    const img=new Image();
+    img.onload=()=>{
+      let w=img.naturalWidth||1080,h=img.naturalHeight||1350;
+      if(kind==='replaceOverlay'){const target=state.items.find(x=>x.id===state.selected && x.type==='overlay');if(target){snap();target.src=src;target.aspectRatio=w/h;target.cropZoom=1;target.cropX=0;target.cropY=0;state.selected=target.id;render();pending=null;return;}return;}
+      if(kind==='image'){
+        // There is one background/design image. Choosing another image replaces it
+        // instead of adding a small second image above the design.
+        const target=state.items.find(x=>x.id===state.selected && x.type==='image') || state.items.find(x=>x.type==='image');
+        if(target){
+          snap();
+          target.src=src; target.zoom=1;
+          target.x=0; target.y=0; target.w=state.w; target.h=state.h;
+          state.selected=target.id; render(); pending=null; return;
+        }
+        const s=Math.max(state.w/w,state.h/h); w*=s; h*=s;
+      }
+      if(kind==='logo'){
+        // LOGO: use the uploaded file's Data URL byte-for-byte as the image source.
+        // No canvas processing, no background removal, no recoloring, no alpha edits.
+        addFrom(kind,src,w,h);
+        pending=null;
+        return;
+      }
+      addFrom(kind,src,w,h);
+      pending=null;
+    };
+    img.onerror=()=>alert('เปิดรูปไม่ได้ กรุณาเลือก JPG หรือ PNG');
+    img.src=src;
+  };
+  reader.onerror=()=>alert('อ่านไฟล์ภาพไม่ได้ กรุณาลองเลือกไฟล์ใหม่');
+  reader.readAsDataURL(f);
+}
+document.getElementById('file').onchange=e=>{handleImageFile(e.target.files[0],pending);e.target.value=''};
+document.getElementById('mobileImageFile').onchange=e=>{handleImageFile(e.target.files[0],'image');e.target.value=''};
+document.getElementById('mobileLogoFile').onchange=e=>{handleImageFile(e.target.files[0],'logo');e.target.value=''}
+document.getElementById('mobileOverlayFile').onchange=e=>{handleImageFile(e.target.files[0],'overlay');e.target.value=''}
+document.getElementById('overlayFile').onchange=e=>{handleImageFile(e.target.files[0],'overlay');e.target.value=''}
+function addFrom(type,src,nw,nh){
+  // nw/nh are the image's natural dimensions. Scale exactly once.
+  let iw=Number(nw)||1080, ih=Number(nh)||1350;
+  const it={id:newId(),type,x:40,y:40,w:360,h:240,src,locked:false,rotation:0}; if(type==='image') it.zoom=1; if(type==='logo') it.aspectRatio=iw/ih;
+  if(type==='logo'){
+    const maxW=Math.min(300,state.w*0.35), maxH=Math.min(220,state.h*0.25);
+    const s=Math.min(maxW/iw,maxH/ih,1);
+    it.w=Math.max(40,Math.round(iw*s)); it.h=Math.max(40,Math.round(ih*s));
+    it.x=Math.max(0,state.w-it.w-40); it.y=40;
+  }else if(type==='overlay'){
+    const maxW=Math.min(360,state.w*0.34), maxH=Math.min(360,state.h*0.28);
+    const s=Math.min(maxW/iw,maxH/ih,1);
+    it.w=Math.max(120,Math.round(iw*s)); it.h=Math.max(120,Math.round(ih*s));
+    const side=Math.max(120,Math.min(it.w,it.h)); it.w=side; it.h=side;
+    it.x=Math.max(20,state.w-it.w-40); it.y=120;
+    it.aspectRatio=1; it.shape='circle'; it.borderWidth=6; it.borderColor='#ffffff'; it.cropZoom=1; it.cropX=0; it.cropY=0;
+  }else{
+    // First image is treated as a canvas-cover image. Additional images are
+    // smaller overlays so they never hide existing text/logo layers.
+    const hasImage=state.items.some(x=>x.type==='image');
+    if(!hasImage){
+      // Background image always fills the whole canvas; object-fit:cover handles cropping.
+      it.w=state.w; it.h=state.h; it.x=0; it.y=0;
+    }else{
+      // Safety fallback: replace the existing background instead of creating an overlay.
+      const target=state.items.find(x=>x.type==='image');
+      if(target){target.src=src;target.zoom=1;target.x=0;target.y=0;target.w=state.w;target.h=state.h;state.selected=target.id;render();return;}
+    }
+  }
+  state.items.push(it);
+  state.selected=it.id;
+  render();
+}
+document.getElementById('size').onchange=e=>{snap();[state.w,state.h]=e.target.value.split('x').map(Number);render()}
+function syncSizeSelect(){const q=document.getElementById('size'); if(q)q.value=state.w+'x'+state.h}
+document.getElementById('undo').onclick=()=>{if(history.length){future.push(JSON.stringify(state));restore(history.pop())}}
+document.getElementById('redo').onclick=()=>{if(future.length){history.push(JSON.stringify(state));restore(future.pop())}}
+document.getElementById('clear').onclick=()=>{snap();state.items=[];state.selected=null;render()}
+document.getElementById('loadLatest').onclick=()=>{if(loadDraft()){syncSizeSelect();render()}else alert('ยังไม่มีงานล่าสุดที่บันทึกไว้')}
+document.getElementById('export').onclick=()=>exportImage();
+async function exportImage(){
+  const format=document.getElementById('exportFormat')?.value||'png';
+  return exportCanvas(format);
+}
+async function exportCanvas(format='png'){
+  // Export must use the same font metrics as the editor.  If a Thai web/custom
+  // font has not finished loading, Canvas may measure text as fallback glyphs,
+  // making the stored width tiny and causing each Thai character to wrap into
+  // a vertical column. Wait for fonts and calculate text/bar sizes directly
+  // from Canvas instead of trusting DOM scrollWidth.
+  try{if(document.fonts && document.fonts.ready) await document.fonts.ready}catch(_){}
+  const c=document.createElement('canvas');c.width=state.w;c.height=state.h;
+  const x=c.getContext('2d');
+  x.fillStyle=state.bgColor||'#000000';x.fillRect(0,0,c.width,c.height);
+  // Export in the same visual layer order used by the editor. Background image
+  // must be painted first even if its record was created later than text layers.
+  const exportItems=[...state.items].sort((a,b)=>{
+    const rank=t=>t==='image'?0:t==='gradient'?1:t==='overlay'?2:3;
+    const ra=rank(a.type), rb=rank(b.type);
+    if(ra!==rb) return ra-rb;
+    return state.items.indexOf(a)-state.items.indexOf(b);
+  });
+  for(const it of exportItems){
+    // Ensure the exact family/weight/style is available before Canvas measures or draws.
+    // This is especially important for DB Helvethaica X weights on GitHub/Pages.
+    if((it.type==='text'||it.type==='bar') && document.fonts && document.fonts.load){
+      try{ await document.fonts.load(fontCss(it)); }catch(_){ }
+    }
+    if(it.type==='image'||it.type==='logo'||it.type==='overlay'){
+      await drawImage(x,it);
+      continue;
+    }
+    if(it.type==='freebar'){
+      x.save();
+      x.globalAlpha=Number.isFinite(Number(it.opacity))?Number(it.opacity):1;
+      const r=Math.max(0,Math.min(Number(it.radius)||0,Math.min(it.w,it.h)/2));
+      if(r>0){ x.beginPath(); roundRectPath(x,it.x,it.y,it.w,it.h,r); x.fillStyle=it.bg||'#ffe500'; x.fill(); }
+      else { x.fillStyle=it.bg||'#ffe500'; x.fillRect(it.x,it.y,it.w,it.h); }
+      const bw=Number(it.borderWidth)||0; if(bw>0){x.strokeStyle=it.borderColor||'#000';x.lineWidth=bw;if(r>0){x.beginPath();roundRectPath(x,it.x+bw/2,it.y+bw/2,Math.max(0,it.w-bw),Math.max(0,it.h-bw),Math.max(0,r-bw/2));x.stroke();}else{x.strokeRect(it.x+bw/2,it.y+bw/2,Math.max(0,it.w-bw),Math.max(0,it.h-bw));}}
+      x.restore(); continue;
+    }
+    if(it.type==='gradient'){
+      const top=it.y, bottom=it.y+it.h, op=Math.max(0,Math.min(1,Number(it.opacity)||0.85)), c=hexToRgb(it.color||'#000000');
+      const g=x.createLinearGradient(0,top,0,bottom);
+      g.addColorStop(0,`rgba(${c[0]},${c[1]},${c[2]},0)`);
+      g.addColorStop(.18,`rgba(${c[0]},${c[1]},${c[2]},${op*.12})`);
+      g.addColorStop(.55,`rgba(${c[0]},${c[1]},${c[2]},${op*.48})`);
+      g.addColorStop(1,`rgba(${c[0]},${c[1]},${c[2]},${op})`);
+      x.fillStyle=g; x.fillRect(it.x,it.y,it.w,it.h);
+      continue;
+    }
+    const fontName=(it.font||'DB Helvethaica X').replace(/['\\]/g,'');
+    const weight=fontWeightOf(it);
+    x.font=fontCss(it);
+    x.textBaseline='alphabetic';
+
+    if(it.type==='text'){
+      // Plain text follows its actual content width; only explicit newlines
+      // create multiple lines. Do not wrap every character at a stale it.w.
+      const fs=Number(it.fontSize)||64;
+      const paragraphs=String(it.text||'').split('\n');
+      const lines=[];
+      for(const para of paragraphs){
+        lines.push(para);
+      }
+      x.fillStyle=it.color||'#111';
+      lines.forEach((line,i)=>x.fillText(line,it.x,it.y+fs*(i+0.9)));
+      continue;
+    }
+
+    if(it.type==='bar'){
+      const fs=Number(it.fontSize)||64;
+      const padX=Number(it.padX)||0;
+      let barW=Number(it.w)||100;
+      let barH=Number(it.h)||100;
+      const raw=String(it.text||'').split('\n');
+      let lines=[];
+      if(it.fit==='text'){
+        const maxContent=Math.max(20,state.w-it.x-padX*2);
+        for(const para of raw){ if(x.measureText(para||' ').width<=maxContent) lines.push(para); else lines.push(...wrapLines(x,para,maxContent)); }
+        const longest=Math.max(1,...lines.map(line=>x.measureText(line||' ').width));
+        barW=Math.min(Math.max(20,Math.ceil(longest+padX*2)),Math.max(20,state.w-it.x));
+        const metrics=lines.map(line=>{const m=x.measureText(line||' ');const a=Math.max(Number.isFinite(m.actualBoundingBoxAscent)?m.actualBoundingBoxAscent:0,Number.isFinite(m.fontBoundingBoxAscent)?m.fontBoundingBoxAscent:0,fs*.78);const d=Math.max(Number.isFinite(m.actualBoundingBoxDescent)?m.actualBoundingBoxDescent:0,Number.isFinite(m.fontBoundingBoxDescent)?m.fontBoundingBoxDescent:0,fs*.22);return {a,d,total:a+d};});
+        const maxGlyph=metrics.reduce((m,v)=>Math.max(m,v.total),fs);
+        const lineHeight=Math.max(Math.ceil(fs*1.06),Math.ceil(maxGlyph+4));
+        barH=Math.max(lineHeight+4,Math.ceil(lines.length*lineHeight+4));
+        x.fillStyle=it.bg||'#ffe500'; x.fillRect(it.x,it.y,barW,barH);
+        x.fillStyle=it.color||'#111'; x.textAlign=it.textAlign==='center'?'center':it.textAlign==='right'?'right':'left';
+        const textX=it.textAlign==='center'?it.x+barW/2:it.textAlign==='right'?it.x+barW-padX:it.x+padX;
+        const blockH=lines.length*lineHeight;
+        lines.forEach((line,i)=>{const mm=metrics[i]||{a:fs*.78,d:fs*.22};const centerY=it.y+(barH-blockH)/2+(i+.5)*lineHeight;const baseY=centerY+(mm.a-mm.d)/2;x.fillText(line,textX,baseY);});
+      }else{
+        // MANUAL: export exactly the stored Bar rectangle and the stored Text
+        // position. Never recalculate the Bar height/vertical centering here.
+        // The editor's Manual mode treats Bar and Text as two parts of one group:
+        // resizing the yellow rectangle must not move/reflow the text.
+        barW=Math.max(20,Number(it.w)||100);
+        barH=Math.max(20,Number(it.h)||100);
+        x.fillStyle=it.bg||'#ffe500';
+        x.fillRect(Number(it.x)||0,Number(it.y)||0,barW,barH);
+
+        x.fillStyle=it.color||'#111';
+        x.textAlign='left';
+        const textX=Number.isFinite(Number(it.textOffsetX))
+          ? Number(it.x)+Number(it.textOffsetX)
+          : (Number.isFinite(Number(it.textX))?Number(it.textX):Number(it.x)+padX);
+        const textTop=Number.isFinite(Number(it.textOffsetY))
+          ? Number(it.y)+Number(it.textOffsetY)
+          : (Number.isFinite(Number(it.textY))?Number(it.textY):Number(it.y));
+
+        // Use the same line box metrics as the editor. Explicit newlines are
+        // preserved; Manual mode never wraps text merely because the Bar is resized.
+        const box=getBarTextMetrics(it);
+        const lh=box.lineHeight;
+        const manualLines=String(it.text||'').split('\n');
+        manualLines.forEach((line,i)=>{
+          const mm=box.metrics[i]||box.metrics[box.metrics.length-1]||{a:fs*.78,d:fs*.22,total:fs};
+          const baseline=textTop+i*lh+(lh-mm.total)/2+mm.a;
+          x.fillText(line,textX,baseline);
+        });
+      }
+      x.textAlign='left';
+      continue;
+    }
+  }
+  const a=document.createElement('a');
+  const isJpg=format==='jpeg';
+  a.download=isJpg?'template-studio.jpg':'template-studio.png';
+  a.href=c.toDataURL(isJpg?'image/jpeg':'image/png',isJpg?0.92:1);
+  a.click();
+}
+function overlayShapePath(ctx,it,inset=0){const x=it.x+inset,y=it.y+inset,w=Math.max(0,it.w-inset*2),h=Math.max(0,it.h-inset*2),cx=x+w/2,cy=y+h/2;const shape=it.shape||'circle';ctx.beginPath();if(shape==='circle'){ctx.ellipse(cx,cy,Math.min(w,h)/2,Math.min(w,h)/2,0,0,Math.PI*2);}else if(shape==='ellipse'){ctx.ellipse(cx,cy,w/2,h/2,0,0,Math.PI*2);}else if(shape==='rounded'){const r=Math.min(w,h)*.18;roundRectPath(ctx,x,y,w,h,r);}else if(shape==='diamond'){ctx.moveTo(cx,y);ctx.lineTo(x+w,cy);ctx.lineTo(cx,y+h);ctx.lineTo(x,cy);ctx.closePath();}else if(shape==='hexagon'){ctx.moveTo(x+w*.25,y);ctx.lineTo(x+w*.75,y);ctx.lineTo(x+w,cy);ctx.lineTo(x+w*.75,y+h);ctx.lineTo(x+w*.25,y+h);ctx.lineTo(x,cy);ctx.closePath();}else if(shape==='chamfer'){const c=Math.min(w,h)*.14;ctx.moveTo(x+c,y);ctx.lineTo(x+w-c,y);ctx.lineTo(x+w,y+c);ctx.lineTo(x+w,y+h-c);ctx.lineTo(x+w-c,y+h);ctx.lineTo(x+c,y+h);ctx.lineTo(x,y+h-c);ctx.lineTo(x,y+c);ctx.closePath();}else{ctx.rect(x,y,w,h);}return ctx;}
+function drawImage(ctx,it){return new Promise(res=>{const im=new Image();im.onload=()=>{const rot=(Number(it.rotation)||0)*Math.PI/180;const cx=it.x+it.w/2,cy=it.y+it.h/2;ctx.save();ctx.translate(cx,cy);ctx.rotate(rot);ctx.translate(-cx,-cy);if(it.type==='image' && Number(it.zoom)>1){const z=Number(it.zoom)||1;const s=Math.max(it.w/im.naturalWidth,it.h/im.naturalHeight)*z;const dw=im.naturalWidth*s,dh=im.naturalHeight*s;const dx=it.x+(it.w-dw)/2,dy=it.y+(it.h-dh)/2;ctx.save();ctx.beginPath();ctx.rect(it.x,it.y,it.w,it.h);ctx.clip();ctx.drawImage(im,dx,dy,dw,dh);ctx.restore();}else if(it.type==='overlay'){const shape=it.shape||'circle';ctx.save();ctx.beginPath();overlayShapePath(ctx,it);ctx.clip();const base=Math.max(it.w/im.naturalWidth,it.h/im.naturalHeight);const s=base*(Number(it.cropZoom)||1);const dw=im.naturalWidth*s,dh=im.naturalHeight*s;const dx=it.x+(it.w-dw)/2+(Number(it.cropX)||0)*it.w/100,dy=it.y+(it.h-dh)/2+(Number(it.cropY)||0)*it.h/100;ctx.drawImage(im,dx,dy,dw,dh);ctx.restore();const bw=Number(it.borderWidth)||0;if(bw>0){ctx.save();ctx.beginPath();overlayShapePath(ctx,it,bw/2);ctx.strokeStyle=it.borderColor||'#fff';ctx.lineWidth=bw;ctx.stroke();ctx.restore();}}else{ctx.drawImage(im,it.x,it.y,it.w,it.h)}ctx.restore();res()};im.src=it.src})}
+function roundRectPath(ctx,x,y,w,h,r){const rr=Math.min(r,w/2,h/2);ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();}
+function wrapLines(ctx,t,max){const out=[];for(const para of t.split('\\n')){let line='';for(const ch of para){const test=line+ch;if(ctx.measureText(test).width>max&&line){out.push(line);line=ch}else line=test}out.push(line)}return out}
+function drawLines(ctx,lines,x,y,fs){lines.forEach((l,i)=>ctx.fillText(l,x,y+fs*(i+0.9)))}
+function drawWrap(ctx,t,x,y,w,fs){drawLines(ctx,wrapLines(ctx,t,w),x,y,fs)}
+
+document.getElementById('addFontBtn').onclick=()=>document.getElementById('fontFile').click();
+document.getElementById('fontFile').onchange=e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const name=f.name.replace(/\.(ttf|otf|woff2?|TTF|OTF|WOFF2?)$/,'').replace(/[-_]+/g,' ').trim() || 'My Font';
+    const safe=name+' '+Date.now();
+    registerFont(safe,reader.result);
+    customFonts.push({name:safe,data:reader.result});
+    saveFonts();
+    const it=state.items.find(x=>x.id===state.selected);
+    if(it && (it.type==='text'||it.type==='bar')) it.font=safe;
+    render();
+  };
+  reader.readAsDataURL(f); e.target.value='';
+};
+
+document.getElementById('closeProps').onclick=()=>{propsOpen=false;applyMobilePropsVisibility();};
+document.getElementById('mText').onclick=()=>add('text');
+document.getElementById('mBar').onclick=()=>add('bar');document.getElementById('mFreeBar').onclick=()=>addFreeBar();document.getElementById('mGradient').onclick=()=>add('gradient');
+document.getElementById('mFont').onclick=()=>document.getElementById('fontFile').click();
+document.getElementById('mDelete').onclick=()=>{
+  if(!state.selected){alert('เลือกชิ้นงานที่ต้องการลบก่อน');return;}
+  snap();
+  state.items=state.items.filter(x=>x.id!==state.selected);
+  state.selected=null;
+  propsOpen=false;
+  render();
+};
+document.getElementById('mExport').onclick=()=>exportImage();
+
+// Mobile Properties toggle: the bottom button explicitly opens/closes the panel.
+// Keep this handler independent of render()'s local isMobile variable.
+function isMobileUI(){
+  return window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches || window.innerWidth<=1100;
+}
+function applyMobilePropsVisibility(){
+  const right=document.querySelector('.right');
+  if(!right)return;
+  const open=!!propsOpen && isMobileUI();
+  right.classList.toggle('props-open',open);
+  if(isMobileUI()){
+    right.style.display=open?'block':'none';
+    right.style.visibility=open?'visible':'hidden';
+    right.style.opacity=open?'1':'0';
+  }else{
+    right.style.display=''; right.style.visibility=''; right.style.opacity='';
+  }
+}
+document.getElementById('mProps').onclick=(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  if(!state.selected){
+    propsOpen=false;
+    applyMobilePropsVisibility();
+    alert('เลือกองค์ประกอบบน Canvas ก่อน');
+    return;
+  }
+  propsOpen=!propsOpen;
+  if(propsOpen) renderProps();
+  applyMobilePropsVisibility();
+};
+
+function getBaseScale(){
+  const stage=document.querySelector('.stage');
+  const isMobile=window.matchMedia('(max-width:900px)').matches;
+  const availableW=isMobile ? Math.max(220, stage.clientWidth-20) : Math.max(280, stage.clientWidth-50);
+  const availableH=isMobile ? Math.max(220, stage.clientHeight-20) : Math.max(280, stage.clientHeight-50);
+  const maxW=isMobile ? availableW : Math.min(availableW,900);
+  const maxH=isMobile ? availableH : Math.min(availableH,760);
+  return Math.max(0.05, Math.min(maxW/state.w,maxH/state.h,1));
+}
+function applyViewZoomStyles(){
+  const stage=document.querySelector('.stage');
+  const wrap=document.querySelector('.canvas-wrap');
+  if(!wrap||!stage)return;
+  const base=getBaseScale();
+  const scale=base*viewZoom;
+  const width=state.w*scale, height=state.h*scale;
+  wrap.style.width=width+'px';
+  wrap.style.height=height+'px';
+  canvas.style.transformOrigin='top left';
+  canvas.style.transform=`scale(${scale})`;
+  // Keep the canvas centered while it fits. Once zoomed beyond the viewport,
+  // place it in a real scrollable area so both horizontal and vertical panning
+  // have physical scroll range instead of being clipped by the flex container.
+  const pad=12;
+  // Keep the design centered between the left/right panels while it fits.
+  // Explicit left/right margins were previously adding extra space to the
+  // flex item and visually pushing the canvas too far to the right.
+  if(viewZoom <= 1.001){
+    wrap.style.margin='auto';
+  }else{
+    const left=Math.max(pad, (stage.clientWidth-width)/2);
+    const top=Math.max(pad, (stage.clientHeight-height)/2);
+    wrap.style.marginLeft=left+'px';
+    wrap.style.marginTop=top+'px';
+    wrap.style.marginRight=pad+'px';
+    wrap.style.marginBottom=pad+'px';
+  }
+  document.querySelector('.stage').classList.toggle('zoomed',viewZoom>1.001);
+}
+function setViewZoom(v, focusX=null, focusY=null, redraw=false){
+  const stage=document.querySelector('.stage');
+  const old=viewZoom;
+  viewZoom=Math.max(1,Math.min(3,Number(v)||1));
+  applyViewZoomStyles();
+  if(focusX!=null && focusY!=null && old>0){
+    const ratio=viewZoom/old;
+    // Preserve the point between the two fingers while the scrollable canvas
+    // grows. Coordinates are relative to the visible stage, so include the
+    // current scroll offset.
+    stage.scrollLeft=(stage.scrollLeft+focusX)*ratio-focusX;
+    stage.scrollTop=(stage.scrollTop+focusY)*ratio-focusY;
+    stage.scrollLeft=Math.max(0,stage.scrollLeft);
+    stage.scrollTop=Math.max(0,stage.scrollTop);
+  }
+  if(redraw) render();
+}
+
+// Editor view zoom is intentionally controlled only by a two-finger pinch on mobile.
+// One finger after zoom pans the editor when the finger is not on an object.
+let pinchStartDist=0, pinchStartZoom=1, pinchCenterX=0, pinchCenterY=0, pinchActive=false;
+let panActive=false, panId=null, panSX=0, panSY=0, panScrollX=0, panScrollY=0;
+function touchDist(a,b){return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)}
+function touchCenter(a,b){return {x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2}}
+const stage=document.querySelector('.stage');
+stage.addEventListener('touchstart',e=>{
+  if(e.touches.length===2){
+    const a=e.touches[0],b=e.touches[1],c=touchCenter(a,b),r=stage.getBoundingClientRect();
+    pinchStartDist=Math.max(1,touchDist(a,b));
+    pinchStartZoom=viewZoom;
+    pinchCenterX=c.x-r.left; pinchCenterY=c.y-r.top;
+    pinchActive=true; panActive=false;
+    e.preventDefault();
+    return;
+  }
+  if(e.touches.length===1 && viewZoom>1.001){
+    const t=e.touches[0];
+    const item=t.target.closest && t.target.closest('.item');
+    if(!item){
+      panActive=true; panId=t.identifier; panSX=t.clientX; panSY=t.clientY;
+      panScrollX=stage.scrollLeft; panScrollY=stage.scrollTop;
+      e.preventDefault();
+    }
+  }
+},{passive:false,capture:true});
+stage.addEventListener('touchmove',e=>{
+  if(pinchActive && e.touches.length>=2){
+    e.preventDefault();
+    const a=e.touches[0],b=e.touches[1],d=Math.max(1,touchDist(a,b));
+    const z=pinchStartZoom*(d/pinchStartDist);
+    const r=stage.getBoundingClientRect(),c=touchCenter(a,b);
+    setViewZoom(z,c.x-r.left,c.y-r.top,false);
+    return;
+  }
+  if(panActive && e.touches.length===1){
+    const t=e.touches[0];
+    if(t.identifier!==panId)return;
+    e.preventDefault();
+    stage.scrollLeft=panScrollX-(t.clientX-panSX);
+    stage.scrollTop=panScrollY-(t.clientY-panSY);
+  }
+},{passive:false,capture:true});
+const endTouch=()=>{if(pinchActive){pinchActive=false;applyViewZoomStyles();} panActive=false;panId=null;};
+stage.addEventListener('touchend',endTouch,{passive:false,capture:true});
+stage.addEventListener('touchcancel',endTouch,{passive:false,capture:true});
+
+loadDraft();
+syncSizeSelect();
+render();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
+</body></html>
+<script>window.addEventListener('resize',()=>{if(typeof applyMobilePropsVisibility==='function')applyMobilePropsVisibility()});window.addEventListener('orientationchange',()=>setTimeout(()=>{if(typeof applyMobilePropsVisibility==='function')applyMobilePropsVisibility()},120));</script>
