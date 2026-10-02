@@ -63,12 +63,12 @@ button,select,input{font:inherit}.btn{border:1px solid #d3d9e1;background:#fff;b
 .bar-resize-top,.bar-resize-bottom{position:absolute;left:50%;transform:translateX(-50%);width:44px;height:12px;background:#1769e0;border:2px solid #fff;border-radius:8px;display:none;z-index:25;cursor:ns-resize;box-shadow:0 1px 4px #0003}.bar-resize-top{top:-7px}.bar-resize-bottom{bottom:-7px}.bar-item.bar-manual.selected .bar-resize-top,.bar-item.bar-manual.selected .bar-resize-bottom{display:block}.bar-resize-top:after,.bar-resize-bottom:after{content:"↕";display:block;color:#fff;font-size:10px;line-height:8px;text-align:center;font-weight:700}.resize{position:absolute;width:20px;height:20px;background:#1769e0;border:2px solid #fff;border-radius:50%;right:-10px;bottom:-10px;cursor:nwse-resize;display:none}.selected .resize{display:block}.bar-item:not(.bar-manual).selected .resize{display:none}.rotate{position:absolute;width:22px;height:22px;background:#fff;border:2px solid #1769e0;border-radius:50%;left:50%;top:-34px;transform:translateX(-50%);cursor:grab;display:none;z-index:20;box-shadow:0 1px 4px #0003}.rotate:after{content:"↻";display:block;color:#1769e0;font-size:15px;line-height:18px;text-align:center;font-weight:700}.selected .rotate{display:block}.rotate:active{cursor:grabbing}.panel-title{font-weight:800;margin:4px 0 12px}.field{margin:10px 0}.field label{display:block;font-size:12px;color:#697381;margin-bottom:5px}.field input[type=text],.field input[type=number],.field select{width:100%;padding:8px;border:1px solid #d6dce4;border-radius:7px}.row{display:flex;gap:7px}.row>*{flex:1}.font-size-control{display:grid;grid-template-columns:1fr minmax(90px,1.8fr) 1fr;gap:8px;align-items:center}.font-size-control input[type=range]{width:100%;margin:0;accent-color:#1769e0}.font-size-btn{height:40px;padding:4px 10px;font-size:20px;line-height:1}.layers{display:flex;flex-direction:column;gap:6px}.layer{padding:7px 8px;border:1px solid #dde2e8;border-radius:8px;display:flex;align-items:center;gap:7px;cursor:pointer;background:#fff}.layer.active{border-color:#1769e0;background:#edf4ff}.layer.dragging{opacity:.45}.layer-name{flex:1;min-width:0;line-height:1.25}.layer-actions{display:flex;gap:3px;flex:none}.layer-actions button{border:1px solid #d6dce4;background:#fff;border-radius:6px;width:30px;height:30px;cursor:pointer}.layer-actions button:disabled{opacity:.35;cursor:not-allowed}.small{font-size:12px;color:#65707c}.colorbox{display:flex;align-items:center;gap:8px;border:1px solid #d6dce4;border-radius:7px;padding:4px 7px;background:#fff}.colorbox input[type=color]{width:42px;height:32px;flex:none;border:0;padding:0;background:transparent}.colorbox span{font-size:12px;color:#4f5965;font-family:monospace}.empty{color:#88919c;font-size:13px}
 input[type=color]{width:100%;height:36px;border:0;background:none;padding:0}
 .mobile-tools{display:none}
-@media(max-width:900px){
+@media(max-width:1100px){
   .mobile-tools{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #d9dee5;padding:4px;z-index:100;height:68px}
   .mobile-tools .tool{padding:3px 2px;font-size:17px;border:1px solid #dde2e8;border-radius:8px;background:#fafbfc;line-height:1.0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;min-height:58px}
   .mobile-tools .tool span{display:block;font-size:10px;margin-top:2px}
 }
-@media(max-width:900px){
+@media(max-width:1100px){
   .top{height:92px;min-height:92px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:34px 48px;gap:4px;padding:4px 8px;align-items:center}
   .brand{grid-column:1 / -1;width:auto;margin:0;font-size:16px;line-height:1}
   .top .btn{padding:5px 4px;min-height:40px;font-size:15px;width:100%;min-width:0;white-space:nowrap}
@@ -224,13 +224,20 @@ function loadDraft(){
 
 let customFonts = JSON.parse(localStorage.getItem('templateStudioFonts') || '[]');
 function saveFonts(){localStorage.setItem('templateStudioFonts', JSON.stringify(customFonts))}
-function registerFont(name, dataUrl){
+async function registerFont(name, dataUrl){
+  const safeName=name.replace(/[\'\\]/g,'');
+  try{
+    if(document.fonts && window.FontFace){
+      const ff=new FontFace(safeName, `url(${dataUrl})`, {weight:'100 900', style:'normal', display:'swap'});
+      await ff.load();
+      document.fonts.add(ff);
+      return true;
+    }
+  }catch(e){}
   const style=document.createElement('style');
-  style.textContent=`@font-face{font-family:'${name.replace(/'/g,"")}';src:url(${dataUrl}) format('truetype');font-weight:400;font-style:normal}`;
+  style.textContent=`@font-face{font-family:'${safeName}';src:url(${dataUrl});font-weight:100 900;font-style:normal;font-display:swap}`;
   document.head.appendChild(style);
-}
-function loadFonts(){
-  customFonts.forEach(f=>registerFont(f.name,f.data));
+  return true;
 }
 function isCustomFont(name){ return customFonts.some(f=>f.name===name); }
 function fontOptions(selected){
@@ -300,7 +307,7 @@ function render(){
   canvas.style.width=state.w+'px'; canvas.style.height=state.h+'px';
   canvas.style.backgroundColor=state.bgColor||'#000000';
   const stage=document.querySelector('.stage');
-  const isMobile=window.matchMedia('(max-width:900px)').matches;
+  const isMobile=window.matchMedia('(max-width:1100px)').matches || window.matchMedia('(pointer:coarse)').matches;
   const availableW=isMobile ? Math.max(220, stage.clientWidth-20) : Math.max(280, stage.clientWidth-50);
   const availableH=isMobile ? Math.max(220, stage.clientHeight-20) : Math.max(280, stage.clientHeight-50);
   const maxW=isMobile ? availableW : Math.min(availableW,900);
@@ -651,7 +658,7 @@ function currentScale(){return document.querySelector('.canvas-wrap').getBoundin
 canvas.addEventListener('click',()=>{state.selected=null;propsOpen=false;render()});
 function isPropertyEditing(){
   const a=document.activeElement;
-  return !!a && (a.id==='ptext'||a.id==='pfs'||a.id==='pfont'||a.id==='pc'||a.id==='pbg'||a.id==='pfit'||a.id==='pzoom'||a.id==='ppad'||a.id==='px'||a.id==='py'||a.id==='pw'||a.id==='ph'||a.id==='gop'||a.id==='gh');
+  return !!a && (a.id==='ptext'||a.id==='pfs'||a.id==='pfont'||a.id==='pc'||a.id==='pbg'||a.id==='pfit'||a.id==='pzoom'||a.id==='ppad'||a.id==='px'||a.id==='py'||a.id==='pw'||a.id==='ph'||a.id==='gop'||a.id==='gh'||a.id==='pfw'||a.id==='pfh'||a.id==='pbw'||a.id==='pbh');
 }
 window.addEventListener('resize',()=>{ updateViewportHeight(); if(!isPropertyEditing()) render(); });
 function renderLayers(){
@@ -721,7 +728,7 @@ function renderProps(){
  if(it.type==='overlay'){it.shape=it.shape||'circle';it.borderWidth=Number.isFinite(Number(it.borderWidth))?Number(it.borderWidth):6;it.borderColor=it.borderColor||'#ffffff';it.cropZoom=Number.isFinite(Number(it.cropZoom))?Number(it.cropZoom):1;it.cropX=Number.isFinite(Number(it.cropX))?Number(it.cropX):0;it.cropY=Number.isFinite(Number(it.cropY))?Number(it.cropY):0;html+=`<div class="field"><label>รูปแบบกรอบ</label><select id="oshape"><option value="square" ${it.shape==='square'?'selected':''}>สี่เหลี่ยม</option><option value="rounded" ${it.shape==='rounded'?'selected':''}>สี่เหลี่ยมมุมมน</option><option value="circle" ${it.shape==='circle'?'selected':''}>วงกลม</option><option value="ellipse" ${it.shape==='ellipse'?'selected':''}>วงรี</option><option value="horizontal" ${it.shape==='horizontal'?'selected':''}>กรอบแนวนอน</option><option value="vertical" ${it.shape==='vertical'?'selected':''}>กรอบแนวตั้ง</option><option value="diamond" ${it.shape==='diamond'?'selected':''}>ข้าวหลามตัด ◆</option><option value="hexagon" ${it.shape==='hexagon'?'selected':''}>หกเหลี่ยม ⬡</option><option value="chamfer" ${it.shape==='chamfer'?'selected':''}>ตัดมุม ⬟</option></select></div><div class="field"><label>ขนาดภาพภายในกรอบ <span id="ocropzval" class="small" style="float:right">${Math.round(it.cropZoom*100)}%</span></label><div class="font-size-control"><button class="btn font-size-btn" id="ocropzminus" type="button">−</button><input id="ocropz" type="range" min="0.5" max="3" step="0.05" value="${it.cropZoom}"><button class="btn font-size-btn" id="ocropzplus" type="button">＋</button></div></div><div class="field"><label>ตำแหน่งภาพแนวนอน <span id="ocropxval" class="small" style="float:right">${Math.round(it.cropX)}%</span></label><input id="ocropx" type="range" min="-100" max="100" step="1" value="${it.cropX}"></div><div class="field"><label>ตำแหน่งภาพแนวตั้ง <span id="ocropyval" class="small" style="float:right">${Math.round(it.cropY)}%</span></label><input id="ocropy" type="range" min="-100" max="100" step="1" value="${it.cropY}"></div><div class="field"><label>ความหนากรอบ <span id="obwval" class="small" style="float:right">${it.borderWidth}px</span></label><input id="obw" type="range" min="0" max="20" step="1" value="${it.borderWidth}"></div><div class="field"><label>สีกรอบ</label><div class="colorbox"><input id="obc" type="color" value="${it.borderColor}"><span id="obcval">${it.borderColor}</span></div></div><div class="field"><label>เปลี่ยนภาพ</label><button class="btn" id="replaceOverlay" type="button" style="width:100%">🖼️ เลือกภาพใหม่</button></div>`;}
  if(it.type==='freebar'){
    it.bg=it.bg||'#ffe500'; it.opacity=Number.isFinite(Number(it.opacity))?Number(it.opacity):1; it.borderColor=it.borderColor||'#000000'; it.borderWidth=Number.isFinite(Number(it.borderWidth))?Number(it.borderWidth):0; it.radius=Number.isFinite(Number(it.radius))?Number(it.radius):0;
-   html+=`<div class="field"><label>สีบาร์</label><div class="colorbox"><input id="pfbg" type="color" value="${it.bg}"><span id="pfbgval">${it.bg}</span></div></div><div class="field"><label>Opacity <span id="pfopval" class="small" style="float:right">${Math.round(it.opacity*100)}%</span></label><input id="pfop" type="range" min=0 max=1 step=0.01 value="${it.opacity}"></div><div class="field"><label>มุมโค้ง <span id="pfrval" class="small" style="float:right">${it.radius}px</span></label><input id="pfr" type="range" min=0 max=80 step=1 value="${it.radius}"></div><div class="field"><label>สีกรอบ</label><div class="colorbox"><input id="pfbc" type="color" value="${it.borderColor}"><span id="pfbcval">${it.borderColor}</span></div></div><div class="field"><label>ความหนากรอบ <span id="pfbwval" class="small" style="float:right">${it.borderWidth}px</span></label><input id="pfbw" type="range" min=0 max=20 step=1 value="${it.borderWidth}"></div><div class="small">🟨 บาร์อิสระ: ลากทั้งบาร์เพื่อย้าย และลากขอบบน/ล่าง/ซ้าย/ขวาเพื่อครอปโดยไม่กระทบข้อความ</div>`;
+   html+=`<div class="field"><label>สีบาร์</label><div class="colorbox"><input id="pfbg" type="color" value="${it.bg}"><span id="pfbgval">${it.bg}</span></div></div><div class="field"><label>ความกว้างบาร์ <span id="pfwval" class="small" style="float:right">${Math.round(it.w)}px</span></label><input id="pfw" type="range" min="20" max="1080" step="1" value="${Math.min(1080,Math.max(20,Math.round(it.w)))}"></div><div class="field"><label>ความสูงบาร์ <span id="pfhval" class="small" style="float:right">${Math.round(it.h)}px</span></label><input id="pfh" type="range" min="10" max="600" step="1" value="${Math.min(600,Math.max(10,Math.round(it.h)))}"></div><div class="row"><button class="btn" id="pfwHalf" type="button">50%</button><button class="btn" id="pfwFull" type="button">เต็ม</button></div><div class="field"><label>Opacity <span id="pfopval" class="small" style="float:right">${Math.round(it.opacity*100)}%</span></label><input id="pfop" type="range" min=0 max=1 step=0.01 value="${it.opacity}"></div><div class="field"><label>มุมโค้ง <span id="pfrval" class="small" style="float:right">${it.radius}px</span></label><input id="pfr" type="range" min=0 max=80 step=1 value="${it.radius}"></div><div class="field"><label>สีกรอบ</label><div class="colorbox"><input id="pfbc" type="color" value="${it.borderColor}"><span id="pfbcval">${it.borderColor}</span></div></div><div class="field"><label>ความหนากรอบ <span id="pfbwval" class="small" style="float:right">${it.borderWidth}px</span></label><input id="pfbw" type="range" min=0 max=20 step=1 value="${it.borderWidth}"></div><div class="small">🟨 บาร์อิสระ: ใช้ Slider ปรับกว้าง/สูงได้โดยไม่ต้องจับขอบบาร์ จึงไม่ไปโดนตัวหนังสือ • ลากทั้งบาร์เพื่อย้ายได้</div>`;
  }
  if(it.type==='gradient'){it.color=it.color||'#000000';it.opacity=Number.isFinite(Number(it.opacity))?Number(it.opacity):0.85;it.heightRatio=Number.isFinite(Number(it.heightRatio))?Number(it.heightRatio):0.40;html+=`<div class="field"><label>สีพื้นไล่เฉด</label><div class="colorbox"><input id="gcolor" type="color" value="${it.color}"><span id="gcolorval">${it.color}</span></div></div><div class="field"><label>ความเข้มของสี <span id="gopval" class="small" style="float:right">${Math.round(it.opacity*100)}%</span></label><input id="gop" type="range" min="0" max="1" step="0.01" value="${it.opacity}"></div><div class="field"><label>ความสูงของไล่เฉด <span id="ghval" class="small" style="float:right">${Math.round(it.heightRatio*100)}%</span></label><input id="gh" type="range" min="0.15" max="1" step="0.01" value="${it.heightRatio}"></div><div class="row"><button class="btn" id="gh30" type="button">30%</button><button class="btn" id="gh40" type="button">40%</button><button class="btn" id="gh50" type="button">50%</button><button class="btn" id="gh60" type="button">60%</button><button class="btn" id="gh70" type="button">70%</button></div><div class="small">เลือกสีของไล่เฉดได้อิสระ โดยค่าเริ่มต้นเป็นสีดำ #000000 และขอบล่างจะติดด้านล่าง Canvas เสมอ</div>`;}
  if(it.type==='text'||it.type==='bar'){
@@ -734,7 +741,7 @@ function renderProps(){
 <option value="text" ${it.fit==='text'?'selected':''}>พอดีกับข้อความอัตโนมัติ</option>
 <option value="full" ${it.fit==='full'?'selected':''}>เต็มความกว้าง</option>
 <option value="manual" ${it.fit==='manual'?'selected':''}>กำหนดกว้าง/สูงเอง</option>
-</select></div><div class="small" style="margin-top:-4px;margin-bottom:8px">💡 Auto = ปรับอัตโนมัติตลอดจนกว่าจะเลือก Manual / Manual = ปรับกรอบแถบเอง โดยไม่ขยับตัวหนังสือ</div><div class="field"><label>ระยะห่างบน–ล่างของข้อความ <span id="ppadval" class="small" style="float:right">${Number(it.pad)||0}px</span></label><input id="ppad" type="range" min="4" max="40" step="1" value="${Number(it.pad)||0}"></div>`;
+</select></div><div class="small" style="margin-top:-4px;margin-bottom:8px">💡 Auto = ปรับอัตโนมัติตลอดจนกว่าจะเลือก Manual / Manual = ปรับกรอบแถบเอง โดยไม่ขยับตัวหนังสือ</div><div class="field"><label>ระยะห่างบน–ล่างของข้อความ <span id="ppadval" class="small" style="float:right">${Number(it.pad)||0}px</span></label><input id="ppad" type="range" min="4" max="40" step="1" value="${Number(it.pad)||0}"></div><div class="field"><label>ความกว้างแถบ <span id="pbwval" class="small" style="float:right">${Math.round(it.w)}px</span></label><input id="pbw" type="range" min="20" max="1080" step="1" value="${Math.min(1080,Math.max(20,Math.round(it.w)))}"></div><div class="field"><label>ความสูงแถบ <span id="pbhval" class="small" style="float:right">${Math.round(it.h)}px</span></label><input id="pbh" type="range" min="10" max="600" step="1" value="${Math.min(600,Math.max(10,Math.round(it.h)))}"></div>`;
  }
  if(it.type==='logo'||it.type==='overlay') html+=`<div class="field"><label>หมุนภาพ <span id="protval" class="small" style="float:right">${Math.round(Number(it.rotation)||0)}°</span></label><input id="prot" type="range" min="-180" max="180" step="1" value="${Number(it.rotation)||0}"></div>`;
  html+=`<div class="row"><div class="field"><label>X</label><input id="px" type="number" value="${Math.round(it.x)}"></div><div class="field"><label>Y</label><input id="py" type="number" value="${Math.round(it.y)}"></div></div>
@@ -758,7 +765,16 @@ function renderProps(){
  const bindv=(id,fn)=>{const q=document.getElementById(id);if(q)q.oninput=()=>{fn(q.value);sync()}}
  if(document.getElementById('ptext'))bindv('ptext',v=>it.text=v);
  if(document.getElementById('pfs')){const fsq=document.getElementById('pfs'), fsv=document.getElementById('pfsval'); const setFontSize=v=>{it.fontSize=Math.max(12,Math.min(500,Math.round(+v||12))); fsq.value=it.fontSize; if(fsv)fsv.textContent=it.fontSize+'px'; sync();}; fsq.oninput=()=>setFontSize(fsq.value); const minus=document.getElementById('pfsminus'), plus=document.getElementById('pfsplus'); if(minus)minus.onclick=()=>setFontSize(it.fontSize-2); if(plus)plus.onclick=()=>setFontSize(it.fontSize+2);}
- if(document.getElementById('pfont')){ const q=document.getElementById('pfont'); q.onchange=async()=>{ it.font=q.value; try{ await document.fonts.load(`400 64px '${it.font.replace(/[']/g,'')}'`); }catch(e){} sync(); renderProps(); }; }
+ if(document.getElementById('pfont')){ const q=document.getElementById('pfont'); q.onchange=async()=>{
+   it.font=q.value;
+   if(isCustomFont(it.font)) it.fontWeight=400;
+   try{
+     const fam=it.font.replace(/[\'\\]/g,'');
+     if(document.fonts && document.fonts.load){ await document.fonts.load(`400 64px '${fam}'`); await document.fonts.load(`700 64px '${fam}'`); }
+     if(document.fonts && document.fonts.ready) await document.fonts.ready;
+   }catch(e){}
+   sync(); saveDraft(); renderProps();
+ }; }
  if(document.getElementById('pweight'))bindv('pweight',v=>it.fontWeight=Number(v));
  if(document.getElementById('pstyle'))bindv('pstyle',v=>it.fontStyle=v);
  if(document.getElementById('pc'))bindv('pc',v=>{it.color=v;const z=document.getElementById('pcval');if(z)z.textContent=v});
@@ -777,9 +793,13 @@ function renderProps(){
    sync();
  };
  if(document.getElementById('ppad')){const pq=document.getElementById('ppad'), pv=document.getElementById('ppadval'); const setPad=v=>{it.pad=Math.max(4,Math.min(40,Math.round(+v||4))); pq.value=it.pad; if(pv)pv.textContent=it.pad+'px'; sync();}; pq.oninput=()=>setPad(pq.value);}
+ if(document.getElementById('pbw')){const q=document.getElementById('pbw'),v=document.getElementById('pbwval');q.oninput=()=>{it.w=Math.max(20,Math.min(state.w,+q.value||20));it.x=Math.max(0,Math.min(state.w-it.w,it.x));if(v)v.textContent=Math.round(it.w)+'px';sync();}}
+ if(document.getElementById('pbh')){const q=document.getElementById('pbh'),v=document.getElementById('pbhval');q.oninput=()=>{it.h=Math.max(10,Math.min(state.h,+q.value||10));it.y=Math.max(0,Math.min(state.h-it.h,it.y));if(v)v.textContent=Math.round(it.h)+'px';sync();}}
  if(document.getElementById('gcolor')){const q=document.getElementById('gcolor'),v=document.getElementById('gcolorval');q.oninput=()=>{it.color=q.value;if(v)v.textContent=q.value;const el=elById();if(el)el.style.background=`linear-gradient(to bottom, ${rgba(it.color,0)} 0%, ${rgba(it.color,it.opacity*0.12)} 18%, ${rgba(it.color,it.opacity*0.48)} 55%, ${rgba(it.color,it.opacity)} 100%)`;saveDraft()};}
  if(document.getElementById('gop')){const oq=document.getElementById('gop'), ov=document.getElementById('gopval'); oq.oninput=()=>{it.opacity=Math.max(0,Math.min(1,+oq.value||0));ov.textContent=Math.round(it.opacity*100)+'%';const el=elById();if(el)el.style.background=`linear-gradient(to bottom, ${rgba(it.color||'#000000',0)} 0%, ${rgba(it.color||'#000000',it.opacity*0.12)} 18%, ${rgba(it.color||'#000000',it.opacity*0.48)} 55%, ${rgba(it.color||'#000000',it.opacity)} 100%)`;saveDraft()};}
  if(document.getElementById('gh')){const hq=document.getElementById('gh'), hv=document.getElementById('ghval'); const setGH=v=>{it.heightRatio=Math.max(.15,Math.min(1,Number(v)||.45));it.h=Math.round(state.h*it.heightRatio);it.y=Math.max(0,state.h-it.h);hq.value=it.heightRatio;hv.textContent=Math.round(it.heightRatio*100)+'%';sync();saveDraft()}; hq.oninput=()=>setGH(hq.value); ['30','40','50','60','70'].forEach(v=>{const b=document.getElementById('gh'+v);if(b)b.onclick=()=>setGH(Number(v)/100)});}
+ if(document.getElementById('pfw')){const q=document.getElementById('pfw'),v=document.getElementById('pfwval');const setW=val=>{it.w=Math.max(20,Math.min(state.w,Number(val)||20));it.x=Math.max(0,Math.min(state.w-it.w,it.x));q.value=Math.round(it.w);if(v)v.textContent=Math.round(it.w)+'px';sync();};q.oninput=()=>setW(q.value);const b50=document.getElementById('pfwHalf');if(b50)b50.onclick=()=>setW(state.w*0.5);const bf=document.getElementById('pfwFull');if(bf)bf.onclick=()=>setW(state.w)}
+ if(document.getElementById('pfh')){const q=document.getElementById('pfh'),v=document.getElementById('pfhval');q.oninput=()=>{it.h=Math.max(10,Math.min(state.h,Number(q.value)||10));it.y=Math.max(0,Math.min(state.h-it.h,it.y));if(v)v.textContent=Math.round(it.h)+'px';sync();}}
  if(document.getElementById('pfbg')){const q=document.getElementById('pfbg'),v=document.getElementById('pfbgval');q.oninput=()=>{it.bg=q.value;if(v)v.textContent=q.value;const el=elById();if(el)el.style.background=it.bg;saveDraft()};}
  if(document.getElementById('pfop')){const q=document.getElementById('pfop'),v=document.getElementById('pfopval');q.oninput=()=>{it.opacity=Math.max(0,Math.min(1,+q.value||0));if(v)v.textContent=Math.round(it.opacity*100)+'%';const el=elById();if(el)el.style.opacity=it.opacity;saveDraft()};}
  if(document.getElementById('pfr')){const q=document.getElementById('pfr'),v=document.getElementById('pfrval');q.oninput=()=>{it.radius=Math.max(0,Math.min(80,+q.value||0));if(v)v.textContent=it.radius+'px';const el=elById();if(el)el.style.borderRadius=it.radius+'px';saveDraft()};}
@@ -941,7 +961,7 @@ function handleImageFile(f,type){
   // Keep a self-contained Data URL. Blob URLs can be revoked or become invalid
   // after a re-render on Android, which caused broken images in earlier versions.
   const reader=new FileReader();
-  reader.onload=()=>{
+  reader.onload=async()=>{
     const src=reader.result;
     const img=new Image();
     img.onload=()=>{
@@ -1162,10 +1182,10 @@ document.getElementById('addFontBtn').onclick=()=>document.getElementById('fontF
 document.getElementById('fontFile').onchange=e=>{
   const f=e.target.files[0]; if(!f)return;
   const reader=new FileReader();
-  reader.onload=()=>{
+  reader.onload=async()=>{
     const name=f.name.replace(/\.(ttf|otf|woff2?|TTF|OTF|WOFF2?)$/,'').replace(/[-_]+/g,' ').trim() || 'My Font';
     const safe=name+' '+Date.now();
-    registerFont(safe,reader.result);
+    await registerFont(safe,reader.result);
     customFonts.push({name:safe,data:reader.result});
     saveFonts();
     const it=state.items.find(x=>x.id===state.selected);
@@ -1192,7 +1212,7 @@ document.getElementById('mExport').onclick=()=>exportImage();
 // Mobile Properties toggle: the bottom button explicitly opens/closes the panel.
 // Keep this handler independent of render()'s local isMobile variable.
 function isMobileUI(){
-  return window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches || window.innerWidth<=1100;
+  return window.matchMedia('(max-width:1100px)').matches || window.matchMedia('(pointer:coarse)').matches || window.matchMedia('(pointer:coarse)').matches || window.innerWidth<=1100;
 }
 function applyMobilePropsVisibility(){
   const right=document.querySelector('.right');
@@ -1223,7 +1243,7 @@ document.getElementById('mProps').onclick=(e)=>{
 
 function getBaseScale(){
   const stage=document.querySelector('.stage');
-  const isMobile=window.matchMedia('(max-width:900px)').matches;
+  const isMobile=window.matchMedia('(max-width:1100px)').matches || window.matchMedia('(pointer:coarse)').matches;
   const availableW=isMobile ? Math.max(220, stage.clientWidth-20) : Math.max(280, stage.clientWidth-50);
   const availableH=isMobile ? Math.max(220, stage.clientHeight-20) : Math.max(280, stage.clientHeight-50);
   const maxW=isMobile ? availableW : Math.min(availableW,900);

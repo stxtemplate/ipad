@@ -1,11 +1,13 @@
-# Template Studio iPad V111
+# Template Studio iPad V114
 
-PWA edition for iPad. Host this folder on HTTPS, open index.html in Safari, then use Share → Add to Home Screen.
+iPad PWA edition based on V112.
 
-Files:
-- index.html — app
-- manifest.json — PWA manifest
-- sw.js — offline cache
-- icon-192.png / icon-512.png — app icons
+Changes in V114:
+- Free Bar (`bar`, `bar1`, `bar2`, ...) now has finger-friendly sliders for width and height in Properties.
+- Width/height sliders update the bar immediately without requiring edge handles.
+- Added 50% width and Full width quick buttons for Free Bar.
+- Legacy text Bar also gets width/height sliders.
+- Text remains independent from Free Bar resizing.
+- Existing iPad Properties / Touch / Pinch Zoom / PWA features are preserved.
 
-Note: iPadOS does not reliably offer Safari/Chrome as an “Open With” target for local HTML files in Files. A web server/HTTPS URL is required for full PWA installation and service-worker features.
+V114: fixes uploaded custom fonts in the plain Text properties menu using FontFace loading and immediate font application.
