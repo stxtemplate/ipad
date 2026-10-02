@@ -224,20 +224,49 @@ function loadDraft(){
 
 let customFonts = JSON.parse(localStorage.getItem('templateStudioFonts') || '[]');
 function saveFonts(){localStorage.setItem('templateStudioFonts', JSON.stringify(customFonts))}
+const runtimeFontUrls = new Map();
 async function registerFont(name, dataUrl){
-  const safeName=name.replace(/[\'\\]/g,'');
+  const safeName=String(name||'Custom Font').replace(/[\'\\]/g,'');
+  if(!safeName || !dataUrl) return false;
   try{
     if(document.fonts && window.FontFace){
-      const ff=new FontFace(safeName, `url(${dataUrl})`, {weight:'100 900', style:'normal', display:'swap'});
+      let src=dataUrl;
+      try{
+        // iPad Safari is more reliable with a Blob URL than a data: URL for FontFace.
+        const m=String(dataUrl).match(/^data:([^;,]+)(?:;[^,]*)?;base64,(.*)$/);
+        if(m){
+          const bin=atob(m[2]); const bytes=new Uint8Array(bin.length);
+          for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+          const blob=new Blob([bytes],{type:m[1]||'font/ttf'});
+          src=URL.createObjectURL(blob); runtimeFontUrls.set(safeName,src);
+        }
+      }catch(_){ src=dataUrl; }
+      const ff=new FontFace(safeName, `url("${src}")`, {weight:'400', style:'normal', display:'swap'});
       await ff.load();
       document.fonts.add(ff);
+      // Force a real font match before the next render.
+      await document.fonts.load(`400 64px "${safeName}"`);
       return true;
     }
-  }catch(e){}
-  const style=document.createElement('style');
-  style.textContent=`@font-face{font-family:'${safeName}';src:url(${dataUrl});font-weight:100 900;font-style:normal;font-display:swap}`;
-  document.head.appendChild(style);
-  return true;
+  }catch(e){ console.warn('Custom font load failed',safeName,e); }
+  try{
+    const style=document.createElement('style');
+    style.textContent=`@font-face{font-family:'${safeName}';src:url("${dataUrl}");font-weight:400;font-style:normal;font-display:swap}`;
+    document.head.appendChild(style);
+    if(document.fonts && document.fonts.load) await document.fonts.load(`400 64px "${safeName}"`);
+    return true;
+  }catch(e){ return false; }
+}
+async function loadFonts(){
+  for(const f of customFonts){ try{ await registerFont(f.name,f.data); }catch(_){ } }
+}
+async function ensureCustomFontLoaded(name){
+  const f=customFonts.find(x=>x.name===name);
+  if(!f) return true;
+  try{
+    if(document.fonts && document.fonts.check && document.fonts.check(`400 32px "${name}"`)) return true;
+  }catch(_){ }
+  return await registerFont(f.name,f.data);
 }
 function isCustomFont(name){ return customFonts.some(f=>f.name===name); }
 function fontOptions(selected){
@@ -271,7 +300,7 @@ function measureTextMetrics(it){
   const weight=fontWeightOf(it);
   const fontName=(it.font||'DB Helvethaica X').replace(/[\'\\]/g,'');
   const ctx=document.createElement('canvas').getContext('2d');
-  ctx.font=`${weight} ${fs}px '${fontName}'`;
+  ctx.font=`${weight} ${fs}px \"${fontName.replace(/\"/g,'')}\"`;
   const lines=String(it.text||'').split('\n');
   const widths=lines.map(line=>ctx.measureText(line||' ').width);
   const w=Math.max(20,Math.ceil(Math.max(...widths,0)));
@@ -332,7 +361,7 @@ function render(){
     const el=document.createElement('div'); el.className='item '+it.type+'-item'+(state.selected===it.id?' selected':'')+(it.locked?' locked':'');
     el.dataset.id=it.id; el.style.left=it.x+'px';el.style.top=it.y+'px';el.style.width=it.w+'px';el.style.height=it.h+'px';el.style.zIndex=i;
     if(it.type==='text'){
-      el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);
+      el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=`\"${String(it.font||'DB Helvethaica X').replace(/\"/g,'')}\"`;el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);
       // Plain text is content-sized: its drag target follows the actual text,
       // so users don't have to grab a tiny corner of a fixed-width box.
       el.style.width='max-content'; el.style.height='auto'; el.style.textAlign=it.textAlign||'left';
@@ -340,7 +369,7 @@ function render(){
       it.w=measured.w; it.h=measured.h;
       el.style.width=measured.w+'px'; el.style.height=measured.h+'px';
     }
-    if(it.type==='bar'){el.innerHTML='';el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';const bg=document.createElement('div');bg.className='bar-bg';bg.style.background=it.bg||'#ffe500';const bc=document.createElement('div');bc.className='bar-content';bc.textContent=it.text;el.appendChild(bg);el.appendChild(bc);fitBar(it,el)}
+    if(it.type==='bar'){el.innerHTML='';el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=`\"${String(it.font||'DB Helvethaica X').replace(/\"/g,'')}\"`;el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';const bg=document.createElement('div');bg.className='bar-bg';bg.style.background=it.bg||'#ffe500';const bc=document.createElement('div');bc.className='bar-content';bc.textContent=it.text;el.appendChild(bg);el.appendChild(bc);fitBar(it,el)}
     if(it.type==='freebar'){
       el.classList.add('freebar-item');
       el.style.background=it.bg||'#ffe500';
@@ -757,8 +786,8 @@ function renderProps(){
    el.style.left=it.x+'px'; el.style.top=it.y+'px'; el.style.width=it.w+'px'; el.style.height=it.h+'px';
    if(it.type==='image'){const im=el.querySelector('img');if(im){it.zoom=Number(it.zoom)||1;im.style.transform=`scale(${it.zoom})`;im.style.objectFit='cover'}el.style.overflow='hidden'}
    if(it.type==='overlay'){const im=el.querySelector('img');it.cropZoom=Number.isFinite(Number(it.cropZoom))?Number(it.cropZoom):1;it.cropX=Number.isFinite(Number(it.cropX))?Number(it.cropX):0;it.cropY=Number.isFinite(Number(it.cropY))?Number(it.cropY):0;applyOverlayShape(el,it);if(im){im.style.objectFit='cover';im.style.width='100%';im.style.height='100%';im.style.transform=`translate(${it.cropX}%,${it.cropY}%) scale(${it.cropZoom})`}}
-   if(it.type==='text'){el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left'}
-   if(it.type==='bar'){el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=it.font||'DB Helvethaica X';el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';let bg=el.querySelector('.bar-bg'),bc=el.querySelector('.bar-content');if(!bg){bg=document.createElement('div');bg.className='bar-bg';el.prepend(bg)}if(!bc){bc=document.createElement('div');bc.className='bar-content';el.appendChild(bc)}bc.textContent=it.text;fitBar(it,el)}
+   if(it.type==='text'){el.textContent=it.text;el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=`\"${String(it.font||'DB Helvethaica X').replace(/\"/g,'')}\"`;el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left'}
+   if(it.type==='bar'){el.style.fontSize=it.fontSize+'px';el.style.color=it.color;el.style.fontFamily=`\"${String(it.font||'DB Helvethaica X').replace(/\"/g,'')}\"`;el.style.fontWeight=String(fontWeightOf(it));el.style.fontStyle=fontStyleOf(it);el.style.textAlign=it.textAlign||'left';let bg=el.querySelector('.bar-bg'),bc=el.querySelector('.bar-content');if(!bg){bg=document.createElement('div');bg.className='bar-bg';el.prepend(bg)}if(!bc){bc=document.createElement('div');bc.className='bar-content';el.appendChild(bc)}bc.textContent=it.text;fitBar(it,el)}
    if(it.type==='gradient'){it.color=it.color||'#000000';el.style.background=`linear-gradient(to bottom, ${rgba(it.color,0)} 0%, ${rgba(it.color,it.opacity*0.12)} 18%, ${rgba(it.color,it.opacity*0.48)} 55%, ${rgba(it.color,it.opacity)} 100%)`;el.style.top=it.y+'px';el.style.height=it.h+'px';}
    saveDraft();
  };
@@ -767,13 +796,18 @@ function renderProps(){
  if(document.getElementById('pfs')){const fsq=document.getElementById('pfs'), fsv=document.getElementById('pfsval'); const setFontSize=v=>{it.fontSize=Math.max(12,Math.min(500,Math.round(+v||12))); fsq.value=it.fontSize; if(fsv)fsv.textContent=it.fontSize+'px'; sync();}; fsq.oninput=()=>setFontSize(fsq.value); const minus=document.getElementById('pfsminus'), plus=document.getElementById('pfsplus'); if(minus)minus.onclick=()=>setFontSize(it.fontSize-2); if(plus)plus.onclick=()=>setFontSize(it.fontSize+2);}
  if(document.getElementById('pfont')){ const q=document.getElementById('pfont'); q.onchange=async()=>{
    it.font=q.value;
-   if(isCustomFont(it.font)) it.fontWeight=400;
-   try{
-     const fam=it.font.replace(/[\'\\]/g,'');
-     if(document.fonts && document.fonts.load){ await document.fonts.load(`400 64px '${fam}'`); await document.fonts.load(`700 64px '${fam}'`); }
-     if(document.fonts && document.fonts.ready) await document.fonts.ready;
-   }catch(e){}
-   sync(); saveDraft(); renderProps();
+   if(isCustomFont(it.font)){
+     it.fontWeight=400;
+     it.fontStyle='normal';
+     await ensureCustomFontLoaded(it.font);
+   }else{
+     try{
+       const fam=it.font.replace(/[\'\\]/g,'');
+       if(document.fonts && document.fonts.load){ await document.fonts.load(`400 64px "${fam}"`); await document.fonts.load(`700 64px "${fam}"`); }
+       if(document.fonts && document.fonts.ready) await document.fonts.ready;
+     }catch(e){}
+   }
+   sync(); saveDraft(); renderProps(); render();
  }; }
  if(document.getElementById('pweight'))bindv('pweight',v=>it.fontWeight=Number(v));
  if(document.getElementById('pstyle'))bindv('pstyle',v=>it.fontStyle=v);
