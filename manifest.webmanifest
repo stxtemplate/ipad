@@ -1,0 +1,10 @@
+{
+  "name":"Template Studio",
+  "short_name":"Template Studio",
+  "start_url":"./",
+  "display":"standalone",
+  "orientation":"any",
+  "background_color":"#eef1f5",
+  "theme_color":"#1769e0",
+  "icons":[{"src":"icon-180.png","sizes":"180x180","type":"image/png","purpose":"any maskable"}]
+}
